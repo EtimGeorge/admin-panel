@@ -1,0 +1,88 @@
+<!-- <html><head><base href="https://barbshoestore.com/admin/#dashboard/written"><title>Barb's Show Stor - Admin Dashboard (Written)</title> -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../css/admin-dashboard.css">
+
+    <title>Admin Dashboard</title>
+  </head>
+
+<body>
+  <div class="admin-container">
+    <aside class="sidebar">
+      <h2>ADMIN PANEL</h2>
+      <nav>
+        <ul>
+          <li><a href="../html/admin-dashboard.html" class="active">Dashboard</a></li>
+          <li><a href="../html/admin-inventory.html">Inventory</a></li>
+          <li><a href="#orders">Orders</a></li>
+          <li><a href="#customers">Customers</a></li>
+          <li><a href="#analytics">Analytics</a></li>
+          <li><a href="#settings">Settings</a></li>
+        </ul>
+      </nav>
+    </aside>
+    
+    <main class="main-content">
+      <header class="dashboard-header">
+        <h1>DASHBOARD</h1>
+        <div class="user-info">
+          <div class="user-avatar">B</div>
+          <button class="logout-btn">LOGOUT</button>
+        </div>
+      </header>
+      
+      <section class="dashboard-section">
+        <h2>STORE OVERVIEW</h2>
+        <div class="stat-grid">
+          <div class="stat-item">
+            <h3>TOTAL SALES</h3>
+            <div class="stat-value">$124,567</div>
+          </div>
+          <div class="stat-item">
+            <h3>NEW ORDERS</h3>
+            <div class="stat-value">47</div>
+          </div>
+          <div class="stat-item">
+            <h3>TOP PRODUCT</h3>
+            <div class="stat-value">Classic Oxford</div>
+          </div>
+          <div class="stat-item">
+            <h3>CUSTOMER SATISFACTION</h3>
+            <div class="stat-value">4.8/5</div>
+          </div>
+        </div>
+      </section>
+      
+      <section class="dashboard-section">
+        <h2>RECENT ACTIVITY</h2>
+        <ul class="recent-activity">
+          <li>New order #1234 received from John Doe</li>
+          <li>Inventory alert: Running Sneakers low on stock</li>
+          <li>Customer review: 5 stars for Classic Oxford</li>
+          <li>Price update: Summer Sandals now $49.99</li>
+          <li>New customer registered: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="99f3f8f7fcd9fce1f8f4e9f5fcb7faf6f4">[email&#160;protected]</a></li>
+        </ul>
+      </section>
+
+      <!-- i will convert the ( list to buttons ) and link to appropriate pages -->
+      
+      <section class="dashboard-section">
+        <h2>QUICK ACTIONS</h2>
+        <ul>
+          <li><a href="../html/add-new-product.html">Add New Product</a></li>
+          <li><a href="#orders/pending">View Pending Orders</a></li>
+          <li><a href="#customers/message">Send Customer Newsletter</a></li>
+          <li><a href="#analytics/report">Generate Monthly Report</a></li>
+        </ul>
+      </section>
+    </main>
+  </div>
+
+  <script src="../javascript/admin-dashboard.js" ></script>
+</body>
+</html>

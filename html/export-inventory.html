@@ -1,0 +1,82 @@
+<!-- <html><head><base href="https://barbshoestore.com/admin/#inventory/export%20inventory/written"> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <link rel="stylesheet" href="../css/export-inventory.css">
+
+  <title>Export Inventory</title>
+
+</head>
+<body>
+  <div class="admin-container">
+    <aside class="sidebar">
+      <h2>ADMIN PANEL</h2>
+      <nav>
+        <ul>
+          <li><a href="../html/admin-dashboard.html">Dashboard</a></li>
+          <li><a href="../html/admin-inventory-page.html" class="active">Inventory</a></li>
+          <li><a href="#orders">Orders</a></li>
+          <li><a href="#customers">Customers</a></li>
+          <li><a href="#analytics">Analytics</a></li>
+          <li><a href="#settings">Settings</a></li>
+        </ul>
+      </nav>
+    </aside>
+    
+    <main class="main-content">
+      <header class="export-header">
+        <h1>EXPORT INVENTORY</h1>
+        <div class="user-info">
+          <div class="user-avatar">B</div>
+          <button class="logout-btn">LOGOUT</button>
+        </div>
+      </header>
+      
+      <section class="export-form">
+        <form id="inventoryExportForm">
+          <div class="form-group">
+            <label for="exportFormat">Export Format:</label>
+            <select id="exportFormat" name="exportFormat">
+              <option value="csv">CSV</option>
+              <option value="json">JSON</option>
+              <option value="xml">XML</option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label for="dateRange">Date Range:</label>
+            <input type="date" id="startDate" name="startDate">
+            <input type="date" id="endDate" name="endDate">
+          </div>
+          
+          <div class="form-group">
+            <label>Fields to Export:</label>
+            <div class="checkbox-group">
+              <label><input type="checkbox" name="fields" value="sku" checked> SKU</label>
+              <label><input type="checkbox" name="fields" value="name" checked> Product Name</label>
+              <label><input type="checkbox" name="fields" value="category" checked> Category</label>
+              <label><input type="checkbox" name="fields" value="price" checked> Price</label>
+              <label><input type="checkbox" name="fields" value="stock" checked> Stock</label>
+              <label><input type="checkbox" name="fields" value="status" checked> Status</label>
+            </div>
+          </div>
+          
+          <button type="submit" class="action-btn">GENERATE EXPORT</button>
+        </form>
+      </section>
+      
+      <section class="export-preview">
+        <h2>Export Preview:</h2>
+        <pre id="exportPreview">
+Your export preview will appear here after generating the export.
+        </pre>
+      </section>
+    </main>
+  </div>
+
+  
+</body>
+</html>

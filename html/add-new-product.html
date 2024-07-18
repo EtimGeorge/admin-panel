@@ -1,0 +1,105 @@
+<!-- <html><head><base href="https://barbshoestore.com/admin/#inventory/%20add%20new%20product/written"> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/add-new-product.css">
+ 
+  <title>Add New Product</title>
+
+</head>
+<body>
+  <div class="admin-container">
+    <aside class="sidebar">
+      <h2>ADMIN PANEL</h2>
+      <nav>
+        <ul>
+          <li><a href="../html/admin-dashboard.html">Dashboard</a></li>
+          <li><a href="../html/admin-inventory.html" class="active">Inventory</a></li>
+          <li><a href="#orders">Orders</a></li>
+          <li><a href="#customers">Customers</a></li>
+          <li><a href="#analytics">Analytics</a></li>
+          <li><a href="#settings">Settings</a></li>
+        </ul>
+      </nav>
+    </aside>
+    
+    <main class="main-content">
+      <header class="page-header">
+        <h1>ADD NEW PRODUCT</h1>
+        <div class="user-info">
+          <div class="user-avatar">B</div>
+          <button class="logout-btn">LOGOUT</button>
+        </div>
+      </header>
+      
+      <section class="form-container">
+        <form id="add-product-form" method="GET" action="/admin/#inventory">
+          <div class="form-group">
+            <label for="product-name">PRODUCT NAME:</label>
+            <input type="text" id="product-name" name="product-name" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="product-sku">SKU:</label>
+            <input type="text" id="product-sku" name="product-sku" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="product-category">CATEGORY:</label>
+            <select id="product-category" name="product-category" required>
+              <option value="">Select a category</option>
+              <option value="men-formal">Men's Formal</option>
+              <option value="women-formal">Women's Formal</option>
+              <option value="casual">Casual</option>
+              <option value="sports">Sports</option>
+              <option value="kids">Kids</option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label for="product-price">PRICE ($):</label>
+            <input type="number" id="product-price" name="product-price" step="0.01" min="0" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="product-stock">INITIAL STOCK:</label>
+            <input type="number" id="product-stock" name="product-stock" min="0" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="product-description">DESCRIPTION:</label>
+            <textarea id="product-description" name="product-description" required></textarea>
+          </div>
+          
+          <div class="form-group">
+            <label for="product-features">FEATURES (one per line):</label>
+            <textarea id="product-features" name="product-features"></textarea>
+          </div>
+          
+          <div class="form-group">
+            <label for="product-sizes">AVAILABLE SIZES (comma-separated):</label>
+            <input type="text" id="product-sizes" name="product-sizes" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="product-colors">AVAILABLE COLORS (comma-separated):</label>
+            <input type="text" id="product-colors" name="product-colors" required>
+          </div>
+          
+          <div>
+            <button type="submit" class="submit-btn">ADD PRODUCT</button>
+            <button type="button" class="cancel-btn" id="cancel-btn">CANCEL</button>
+          </div>
+        </form>
+      </section>
+    </main>
+  </div>
+
+  <script src="../javascript/add-new-product.js">
+   
+  </script>
+</body>
+</html>

@@ -1,0 +1,240 @@
+<html><head><base href="https://barbshoestore.com/admin/#orders/view/print%20invoice/written"><title>Barb's Shoe Store - Print Invoice (Written)</title>
+<style>
+  :root {
+    --primary-color: #00FFFF;
+    --secondary-color: #FF00FF;
+    --background-color: #0D0D0D;
+    --card-background: #1A1A1A;
+    --text-color: #FFFFFF;
+    --text-light: #CCCCCC;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    --accent-color: #FFD700;
+  }
+  
+  body {
+    font-family: 'Courier New', monospace;
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-color);
+    color: var(--text-color);
+  }
+  
+  .invoice-container {
+    max-width: 800px;
+    margin: 2em auto;
+    background-color: var(--card-background);
+    padding: 2em;
+    box-shadow: var(--shadow);
+  }
+  
+  .invoice-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 2em;
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 1em;
+  }
+  
+  .store-info h1 {
+    color: var(--primary-color);
+    margin: 0;
+  }
+  
+  .store-info p {
+    margin: 0.5em 0;
+  }
+  
+  .invoice-details {
+    text-align: right;
+  }
+  
+  .invoice-details h2 {
+    color: var(--secondary-color);
+    margin: 0;
+  }
+  
+  .customer-info, .order-info {
+    margin-bottom: 2em;
+  }
+  
+  .info-grid {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 0.5em;
+  }
+  
+  .info-label {
+    font-weight: bold;
+    color: var(--secondary-color);
+  }
+  
+  .order-items {
+    margin-bottom: 2em;
+  }
+  
+  .order-items table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .order-items th, .order-items td {
+    border: 1px solid var(--text-light);
+    padding: 0.5em;
+    text-align: left;
+  }
+  
+  .order-items th {
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+  }
+  
+  .order-total {
+    text-align: right;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: var(--accent-color);
+  }
+  
+  .invoice-footer {
+    margin-top: 2em;
+    text-align: center;
+    font-size: 0.9em;
+    color: var(--text-light);
+  }
+  
+  @media print {
+    body {
+      background-color: white;
+      color: black;
+    }
+    
+    .invoice-container {
+      box-shadow: none;
+    }
+    
+    .store-info h1, .invoice-details h2 {
+      color: black;
+    }
+    
+    .info-label {
+      color: #333;
+    }
+    
+    .order-items th {
+      background-color: #eee;
+      color: black;
+    }
+    
+    .order-total {
+      color: black;
+    }
+  }
+</style>
+</head>
+<body>
+  <div class="invoice-container">
+    <header class="invoice-header">
+      <div class="store-info">
+        <h1>BARB'S SHOE STORE</h1>
+        <p>123 Fashion Avenue, Styleville, ST 54321</p>
+        <p>Phone: (555) 987-6543</p>
+        <p>Email: info@barbshoestore.com</p>
+      </div>
+      <div class="invoice-details">
+        <h2>INVOICE</h2>
+        <p><strong>Invoice #:</strong> INV-12346</p>
+        <p><strong>Date:</strong> 2023-07-16</p>
+        <p><strong>Order #:</strong> 12346</p>
+      </div>
+    </header>
+    
+    <section class="customer-info">
+      <h2>Bill To:</h2>
+      <div class="info-grid">
+        <span class="info-label">Name:</span>
+        <span>Jane Smith</span>
+        <span class="info-label">Address:</span>
+        <span>123 Main St, Anytown, ST 12345</span>
+        <span class="info-label">Email:</span>
+        <span>jane.smith@email.com</span>
+        <span class="info-label">Phone:</span>
+        <span>(555) 123-4567</span>
+      </div>
+    </section>
+    
+    <section class="order-info">
+      <h2>Order Information:</h2>
+      <div class="info-grid">
+        <span class="info-label">Order Date:</span>
+        <span>2023-07-16</span>
+        <span class="info-label">Shipping Method:</span>
+        <span>Standard Shipping</span>
+        <span class="info-label">Payment Method:</span>
+        <span>Credit Card (ending in 1234)</span>
+      </div>
+    </section>
+    
+    <section class="order-items">
+      <h2>Order Items:</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Item</th>
+            <th>Quantity</th>
+            <th>Unit Price</th>
+            <th>Total</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Running Sneakers</td>
+            <td>1</td>
+            <td>$129.99</td>
+            <td>$129.99</td>
+          </tr>
+          <tr>
+            <td>Casual Sandals</td>
+            <td>2</td>
+            <td>$64.99</td>
+            <td>$129.98</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+    
+    <section class="order-total">
+      <p>Subtotal: $259.97</p>
+      <p>Shipping: $0.00</p>
+      <p>Tax: $20.80</p>
+      <p>Total: $280.77</p>
+    </section>
+    
+    <footer class="invoice-footer">
+      <p>Thank you for your purchase!</p>
+      <p>For any questions or concerns, please contact our customer service at (555) 987-6543 or support@barbshoestore.com</p>
+    </footer>
+  </div>
+
+  <script>
+    // Print the invoice automatically when the page loads
+    window.onload = function() {
+      window.print();
+    }
+
+    // Activity logging
+    function logAdminActivity(activity) {
+      console.log('Admin activity:', activity);
+      // In a real implementation, this would send logs to a secure server
+    }
+
+    // Log invoice generation
+    logAdminActivity('Generated invoice for order #12346');
+
+    // Prevent accidental navigation away from the page
+    window.onbeforeunload = function() {
+      return "Are you sure you want to leave this page? The invoice may not be printed if you continue.";
+    }
+  </script>
+</body>
+</html>

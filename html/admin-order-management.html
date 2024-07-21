@@ -1,0 +1,105 @@
+<!-- <html><head><base href="https://barbshoestore.com/admin/#orders/written"> -->
+  
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="../css/admin-order-management.css">
+  
+  <title>Orders Management (Written)</title>
+
+</head>
+<body>
+  <div class="admin-container">
+    <aside class="sidebar">
+      <h2>ADMIN PANEL</h2>
+      <nav>
+        <ul>
+          <li><a href="./html/admin-dashboard.html">Dashboard</a></li>
+          <li><a href="../html/admin-inventory.html">Inventory</a></li>
+          <li><a href="../html/admin-order-management.html" class="active">Orders</a></li>
+          <li><a href="#customers">Customers</a></li>
+          <li><a href="#analytics">Analytics</a></li>
+          <li><a href="#settings">Settings</a></li>
+        </ul>
+      </nav>
+    </aside>
+    
+    <main class="main-content">
+      <header class="orders-header">
+        <h1>ORDER MANAGEMENT</h1>
+        <div class="user-info">
+          <div class="user-avatar">B</div>
+          <button class="logout-btn">LOGOUT</button>
+        </div>
+      </header>
+      
+      <section class="orders-actions">
+        <a href="../html/order-filter-orders.html"><button class="action-btn" id="filterOrdersBtn">FILTER ORDERS</button></a>
+        <a href="../html/order-export-oders.html"><button class="action-btn" id="exportOrdersBtn">EXPORT ORDERS</button></a>
+      </section>
+      
+      <section class="orders-list">
+        <table class="orders-table">
+          <thead>
+            <tr>
+              <th>ORDER ID</th>
+              <th>CUSTOMER</th>
+              <th>DATE</th>
+              <th>TOTAL</th>
+              <th>STATUS</th>
+              <th>ACTIONS</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>#12345</td>
+              <td>John Doe</td>
+              <td>2023-07-15</td>
+              <td>&#x20A6;189.98</td>
+              <td><span class="order-status status-shipped">SHIPPED</span></td>
+              <td><a href="../html/order-order-view.html"><button class="action-btn">VIEW</button></a></td>
+            </tr>
+            <tr>
+              <td>#12346</td>
+              <td>Jane Smith</td>
+              <td>2023-07-16</td>
+              <td>&#x20A6;259.97</td>
+              <td><span class="order-status status-processing">PROCESSING</span></td>
+              <td><button class="action-btn">VIEW</button></td>
+            </tr>
+            <tr>
+              <td>#12347</td>
+              <td>Bob Johnson</td>
+              <td>2023-07-17</td>
+              <td>&#x20A6;99.99</td>
+              <td><span class="order-status status-pending">PENDING</span></td>
+              <td><button class="action-btn">VIEW</button></td>
+            </tr>
+            <tr>
+              <td>#12348</td>
+              <td>Alice Brown</td>
+              <td>2023-07-14</td>
+              <td>&#x20A6;349.95</td>
+              <td><span class="order-status status-delivered">DELIVERED</span></td>
+              <td><button class="action-btn">VIEW</button></td>
+            </tr>
+            <tr>
+              <td>#12349</td>
+              <td>Charlie Wilson</td>
+              <td>2023-07-13</td>
+              <td>&#x20A6;79.99</td>
+              <td><span class="order-status status-cancelled">CANCELLED</span></td>
+              <td><button class="action-btn">VIEW</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </main>
+  </div>
+
+  <script src="../javascript/admin-order-management.js" ></script>
+</body>
+</html>

@@ -1,0 +1,355 @@
+<html><head><base href="https://barbshoestore.com/admin/#orders/view/update%20status/written"><title>Barb's Shoe Store - Update Order Status (Written)</title>
+<style>
+  :root {
+    --primary-color: #00FFFF;
+    --secondary-color: #FF00FF;
+    --background-color: #0D0D0D;
+    --card-background: #1A1A1A;
+    --text-color: #FFFFFF;
+    --text-light: #CCCCCC;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    --accent-color: #FFD700;
+    --success-color: #00FF00;
+    --warning-color: #FF4500;
+    --danger-color: #FF0000;
+  }
+  
+  body {
+    font-family: 'Courier New', monospace;
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-color);
+    color: var(--text-color);
+  }
+  
+  .admin-container {
+    display: flex;
+    min-height: 100vh;
+  }
+  
+  .sidebar {
+    width: 250px;
+    background-color: var(--card-background);
+    padding: 2em 1em;
+    border-right: 1px solid var(--primary-color);
+  }
+  
+  .sidebar h2 {
+    color: var(--primary-color);
+    margin-bottom: 1em;
+    text-align: center;
+  }
+  
+  .sidebar ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .sidebar ul li {
+    margin-bottom: 0.5em;
+  }
+  
+  .sidebar ul li a {
+    color: var(--text-color);
+    text-decoration: none;
+    display: block;
+    padding: 0.5em 1em;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .sidebar ul li a:hover, .sidebar ul li a.active {
+    background-color: var(--primary-color);
+    color: var(--background-color);
+  }
+  
+  .main-content {
+    flex: 1;
+    padding: 2em;
+    overflow-y: auto;
+  }
+  
+  .status-update-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2em;
+    border-bottom: 1px solid var(--primary-color);
+    padding-bottom: 1em;
+  }
+  
+  .status-update-header h1 {
+    color: var(--primary-color);
+  }
+  
+  .user-info {
+    display: flex;
+    align-items: center;
+  }
+  
+  .user-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--accent-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 1em;
+  }
+  
+  .logout-btn {
+    background-color: var(--warning-color);
+    color: var(--text-color);
+    border: none;
+    padding: 0.5em 1em;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .logout-btn:hover {
+    background-color: var(--accent-color);
+  }
+  
+  .status-update-form {
+    background-color: var(--card-background);
+    padding: 2em;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+  }
+  
+  .form-group {
+    margin-bottom: 1.5em;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 0.5em;
+    color: var(--secondary-color);
+  }
+  
+  .form-group input, .form-group select, .form-group textarea {
+    width: 100%;
+    padding: 0.5em;
+    border: 1px solid var(--text-light);
+    border-radius: 4px;
+    background-color: var(--background-color);
+    color: var(--text-color);
+  }
+  
+  .form-group textarea {
+    resize: vertical;
+    min-height: 100px;
+  }
+  
+  .action-btn {
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    border: none;
+    padding: 0.5em 1em;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-right: 1em;
+  }
+  
+  .action-btn:hover {
+    background-color: var(--primary-color);
+  }
+  
+  .action-btn.cancel {
+    background-color: var(--danger-color);
+  }
+  
+  .action-btn.cancel:hover {
+    background-color: var(--warning-color);
+  }
+  
+  .status-history {
+    margin-top: 2em;
+  }
+  
+  .status-history h2 {
+    color: var(--primary-color);
+    margin-bottom: 1em;
+  }
+  
+  .status-history ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .status-history li {
+    background-color: var(--card-background);
+    padding: 1em;
+    margin-bottom: 1em;
+    border-radius: 4px;
+    box-shadow: var(--shadow);
+  }
+  
+  .status-history .status-date {
+    font-weight: bold;
+    color: var(--secondary-color);
+  }
+  
+  .status-history .status-label {
+    display: inline-block;
+    padding: 0.25em 0.5em;
+    border-radius: 4px;
+    font-weight: bold;
+    margin-left: 1em;
+  }
+</style>
+</head>
+<body>
+  <div class="admin-container">
+    <aside class="sidebar">
+      <h2>ADMIN PANEL</h2>
+      <nav>
+        <ul>
+          <li><a href="#dashboard">Dashboard</a></li>
+          <li><a href="#inventory">Inventory</a></li>
+          <li><a href="#orders" class="active">Orders</a></li>
+          <li><a href="#customers">Customers</a></li>
+          <li><a href="#analytics">Analytics</a></li>
+          <li><a href="#settings">Settings</a></li>
+        </ul>
+      </nav>
+    </aside>
+    
+    <main class="main-content">
+      <header class="status-update-header">
+        <h1>UPDATE ORDER STATUS</h1>
+        <div class="user-info">
+          <div class="user-avatar">B</div>
+          <button class="logout-btn">LOGOUT</button>
+        </div>
+      </header>
+      
+      <section class="status-update-form">
+        <form id="updateStatusForm">
+          <div class="form-group">
+            <label for="orderId">Order ID:</label>
+            <input type="text" id="orderId" name="orderId" value="#12346" readonly>
+          </div>
+          
+          <div class="form-group">
+            <label for="currentStatus">Current Status:</label>
+            <input type="text" id="currentStatus" name="currentStatus" value="PROCESSING" readonly>
+          </div>
+          
+          <div class="form-group">
+            <label for="newStatus">New Status:</label>
+            <select id="newStatus" name="newStatus" required>
+              <option value="">Select new status</option>
+              <option value="PROCESSING">PROCESSING</option>
+              <option value="SHIPPED">SHIPPED</option>
+              <option value="DELIVERED">DELIVERED</option>
+              <option value="CANCELLED">CANCELLED</option>
+              <option value="RETURNED">RETURNED</option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label for="statusNote">Status Update Note:</label>
+            <textarea id="statusNote" name="statusNote" placeholder="Enter any additional information about this status update"></textarea>
+          </div>
+          
+          <div class="form-group">
+            <label for="notifyCustomer">
+              <input type="checkbox" id="notifyCustomer" name="notifyCustomer" checked>
+              Notify customer about this update
+            </label>
+          </div>
+          
+          <button type="submit" class="action-btn">UPDATE STATUS</button>
+          <button type="button" class="action-btn cancel" id="cancelBtn">CANCEL</button>
+        </form>
+      </section>
+      
+      <section class="status-history">
+        <h2>Status Update History</h2>
+        <ul>
+          <li>
+            <span class="status-date">2023-07-16 14:30</span>
+            <span class="status-label" style="background-color: var(--accent-color); color: var(--background-color);">PROCESSING</span>
+            <p>Order received and payment confirmed. Processing for shipment.</p>
+          </li>
+          <li>
+            <span class="status-date">2023-07-16 10:15</span>
+            <span class="status-label" style="background-color: var(--warning-color); color: var(--background-color);">PENDING</span>
+            <p>Order placed by customer. Awaiting payment confirmation.</p>
+          </li>
+        </ul>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    document.querySelector('.logout-btn').addEventListener('click', function() {
+      alert('Logging out...');
+      // In a real application, this would handle the logout process
+      window.location.href = '/admin/logout';
+    });
+
+    document.getElementById('updateStatusForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const newStatus = document.getElementById('newStatus').value;
+      const statusNote = document.getElementById('statusNote').value;
+      const notifyCustomer = document.getElementById('notifyCustomer').checked;
+      
+      alert(`Status updated to ${newStatus}.\nNote: ${statusNote}\nNotify customer: ${notifyCustomer}`);
+      
+      // In a real application, this would send the update to the server
+      // and refresh the page or update the UI accordingly
+      
+      // Add new status to history
+      const statusHistory = document.querySelector('.status-history ul');
+      const newStatusItem = document.createElement('li');
+      const now = new Date();
+      newStatusItem.innerHTML = `
+        <span class="status-date">${now.toLocaleString()}</span>
+        <span class="status-label" style="background-color: var(--primary-color); color: var(--background-color);">${newStatus}</span>
+        <p>${statusNote}</p>
+      `;
+      statusHistory.insertBefore(newStatusItem, statusHistory.firstChild);
+      
+      // Reset form
+      this.reset();
+    });
+
+    document.getElementById('cancelBtn').addEventListener('click', function() {
+      if (confirm('Are you sure you want to cancel this update?')) {
+        window.location.href = '#orders/view/written';
+      }
+    });
+
+    // Activity logging
+    function logAdminActivity(activity) {
+      console.log('Admin activity:', activity);
+      // In a real implementation, this would send logs to a secure server
+    }
+
+    // Log page load
+    logAdminActivity('Accessed order status update page for order #12346');
+
+    // Session timeout simulation
+    let sessionTimeout;
+    function resetSessionTimeout() {
+      clearTimeout(sessionTimeout);
+      sessionTimeout = setTimeout(() => {
+        alert('Your session has expired. Please log in again.');
+        window.location.href = '/admin/logout';
+      }, 30 * 60 * 1000); // 30 minutes
+    }
+
+    // Reset timeout on user activity
+    document.addEventListener('click', resetSessionTimeout);
+    document.addEventListener('keypress', resetSessionTimeout);
+
+    // Initial call to start the timeout
+    resetSessionTimeout();
+  </script>
+</body>
+</html>

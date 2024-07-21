@@ -1,0 +1,194 @@
+
+  :root {
+    --primary-color: #00FFFF;
+    --secondary-color: #FF00FF;
+    --background-color: #0D0D0D;
+    --card-background: #1A1A1A;
+    --text-color: #FFFFFF;
+    --text-light: #CCCCCC;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    --accent-color: #FFD700;
+    --success-color: #00FF00;
+    --warning-color: #FF4500;
+    --danger-color: #FF0000;
+  }
+  
+  body {
+    font-family: 'Courier New', monospace;
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-color);
+    color: var(--text-color);
+  }
+  
+  .admin-container {
+    display: flex;
+    min-height: 100vh;
+  }
+  
+  .sidebar {
+    width: 250px;
+    background-color: var(--card-background);
+    padding: 2em 1em;
+    border-right: 1px solid var(--primary-color);
+  }
+  
+  .sidebar h2 {
+    color: var(--primary-color);
+    margin-bottom: 1em;
+    text-align: center;
+  }
+  
+  .sidebar ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .sidebar ul li {
+    margin-bottom: 0.5em;
+  }
+  
+  .sidebar ul li a {
+    color: var(--text-color);
+    text-decoration: none;
+    display: block;
+    padding: 0.5em 1em;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .sidebar ul li a:hover, .sidebar ul li a.active {
+    background-color: var(--primary-color);
+    color: var(--background-color);
+  }
+  
+  .main-content {
+    flex: 1;
+    padding: 2em;
+    overflow-y: auto;
+  }
+  
+  .order-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2em;
+    border-bottom: 1px solid var(--primary-color);
+    padding-bottom: 1em;
+  }
+  
+  .order-header h1 {
+    color: var(--primary-color);
+  }
+  
+  .user-info {
+    display: flex;
+    align-items: center;
+  }
+  
+  .user-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--accent-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 1em;
+  }
+  
+  .logout-btn {
+    background-color: var(--warning-color);
+    color: var(--text-color);
+    border: none;
+    padding: 0.5em 1em;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .logout-btn:hover {
+    background-color: var(--accent-color);
+  }
+  
+  .order-details {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2em;
+  }
+  
+  .order-info, .customer-info, .order-items, .order-actions {
+    background-color: var(--card-background);
+    padding: 1em;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+  }
+  
+  .order-info h2, .customer-info h2, .order-items h2, .order-actions h2 {
+    color: var(--primary-color);
+    margin-top: 0;
+  }
+  
+  .info-grid {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 0.5em;
+  }
+  
+  .info-label {
+    font-weight: bold;
+    color: var(--secondary-color);
+  }
+  
+  .order-status {
+    padding: 0.25em 0.5em;
+    border-radius: 4px;
+    font-weight: bold;
+    display: inline-block;
+  }
+  
+  .status-processing {
+    background-color: var(--accent-color);
+    color: var(--background-color);
+  }
+  
+  .order-items table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1em;
+  }
+  
+  .order-items th, .order-items td {
+    border: 1px solid var(--text-light);
+    padding: 0.5em;
+    text-align: left;
+  }
+  
+  .order-items th {
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+  }
+  
+  .action-btn {
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    border: none;
+    padding: 0.5em 1em;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-right: 1em;
+    margin-bottom: 1em;
+  }
+  
+  .action-btn:hover {
+    background-color: var(--primary-color);
+  }
+  
+  .action-btn.cancel {
+    background-color: var(--danger-color);
+  }
+  
+  .action-btn.cancel:hover {
+    background-color: var(--warning-color);
+  }

@@ -1,0 +1,109 @@
+<!-- <html><head><base href="https://barbshoestore.com/admin/#orders/filter%20orders/written"> -->
+  
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="../css/order-filter-orders.css">
+  <title> Order Filters</title>
+
+</head>
+<body>
+  <div class="admin-container">
+    <aside class="sidebar">
+      <h2>ADMIN PANEL</h2>
+      <nav>
+        <ul>
+          <li><a href="../html/admin-dashboard.html">Dashboard</a></li>
+          <li><a href="../html/admin-inventory.html">Inventory</a></li>
+          <li><a href="../html/admin-order-management.html" class="active">Orders</a></li>
+          <li><a href="#customers">Customers</a></li>
+          <li><a href="#analytics">Analytics</a></li>
+          <li><a href="#settings">Settings</a></li>
+        </ul>
+      </nav>
+    </aside>
+    
+    <main class="main-content">
+      <header class="filter-header">
+        <h1>FILTER ORDERS</h1>
+        <div class="user-info">
+          <div class="user-avatar">B</div>
+          <button class="logout-btn">LOGOUT</button>
+        </div>
+      </header>
+      
+      <section class="filter-form">
+        <form id="orderFilterForm">
+          <div class="form-group">
+            <label for="orderID">Order ID:</label>
+            <input type="text" id="orderID" name="orderID" placeholder="Enter Order ID">
+          </div>
+          
+          <div class="form-group">
+            <label for="customerName">Customer Name:</label>
+            <input type="text" id="customerName" name="customerName" placeholder="Enter Customer Name">
+          </div>
+          
+          <div class="form-group">
+            <label for="dateFrom">Date From:</label>
+            <input type="date" id="dateFrom" name="dateFrom">
+          </div>
+          
+          <div class="form-group">
+            <label for="dateTo">Date To:</label>
+            <input type="date" id="dateTo" name="dateTo">
+          </div>
+          
+          <div class="form-group">
+            <label for="orderStatus">Order Status:</label>
+            <select id="orderStatus" name="orderStatus">
+              <option value="">All Statuses</option>
+              <option value="pending">Pending</option>
+              <option value="processing">Processing</option>
+              <option value="shipped">Shipped</option>
+              <option value="delivered">Delivered</option>
+              <option value="cancelled">Cancelled</option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label>Payment Method:</label>
+            <div class="checkbox-group">
+              <label><input type="checkbox" name="paymentMethod" value="credit_card"> Credit Card</label>
+              <label><input type="checkbox" name="paymentMethod" value="paypal"> PayPal</label>
+              <label><input type="checkbox" name="paymentMethod" value="bank_transfer"> Bank Transfer</label>
+            </div>
+          </div>
+          
+          <button type="submit" class="action-btn">APPLY FILTERS</button>
+          <button type="reset" class="action-btn">RESET FILTERS</button>
+        </form>
+      </section>
+      
+      <section class="filter-results">
+        <h2>Filtered Results:</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>ORDER ID</th>
+              <th>CUSTOMER</th>
+              <th>DATE</th>
+              <th>TOTAL</th>
+              <th>STATUS</th>
+              <th>PAYMENT METHOD</th>
+            </tr>
+          </thead>
+          <tbody id="filterResultsBody">
+            <!-- Results will be dynamically populated here -->
+          </tbody>
+        </table>
+      </section>
+    </main>
+  </div>
+
+  <script src="../javascript/order-filter-orders.js"></script>
+</body>
+</html>

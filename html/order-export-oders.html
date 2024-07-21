@@ -1,0 +1,97 @@
+<!-- <html><head><base href="https://barbshoestore.com/admin/#orders/export%20orders/written"> -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/order-export-oders.css">
+
+  <title>Orders Export Orders </title>
+
+</head>
+
+<body>
+  <div class="admin-container">
+    <aside class="sidebar">
+      <h2>ADMIN PANEL</h2>
+      <nav>
+        <ul>
+          <li><a href="../html/admin-dashboard.html">Dashboard</a></li>
+          <li><a href="../html/admin-inventory.html">Inventory</a></li>
+          <li><a href="../html/admin-order-management.html" class="active">Orders</a></li>
+          <li><a href="#customers">Customers</a></li>
+          <li><a href="#analytics">Analytics</a></li>
+          <li><a href="#settings">Settings</a></li>
+        </ul>
+      </nav>
+    </aside>
+    
+    <main class="main-content">
+      <header class="export-header">
+        <h1>EXPORT ORDERS</h1>
+        <div class="user-info">
+          <div class="user-avatar">B</div>
+          <button class="logout-btn">LOGOUT</button>
+        </div>
+      </header>
+      
+      <section class="export-form">
+        <form id="orderExportForm">
+          <div class="form-group">
+            <label for="exportFormat">Export Format:</label>
+            <select id="exportFormat" name="exportFormat">
+              <option value="csv">CSV</option>
+              <option value="json">JSON</option>
+              <option value="xml">XML</option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label for="dateRange">Date Range:</label>
+            <input type="date" id="startDate" name="startDate">
+            <input type="date" id="endDate" name="endDate">
+          </div>
+          
+          <div class="form-group">
+            <label for="orderStatus">Order Status:</label>
+            <select id="orderStatus" name="orderStatus">
+              <option value="all">All Statuses</option>
+              <option value="pending">Pending</option>
+              <option value="processing">Processing</option>
+              <option value="shipped">Shipped</option>
+              <option value="delivered">Delivered</option>
+              <option value="cancelled">Cancelled</option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label>Fields to Export:</label>
+            <div class="checkbox-group">
+              <label><input type="checkbox" name="fields" value="orderId" checked> Order ID</label>
+              <label><input type="checkbox" name="fields" value="customerName" checked> Customer Name</label>
+              <label><input type="checkbox" name="fields" value="orderDate" checked> Order Date</label>
+              <label><input type="checkbox" name="fields" value="totalAmount" checked> Total Amount</label>
+              <label><input type="checkbox" name="fields" value="status" checked> Status</label>
+              <label><input type="checkbox" name="fields" value="items" checked> Order Items</label>
+              <label><input type="checkbox" name="fields" value="shippingAddress" checked> Shipping Address</label>
+              <label><input type="checkbox" name="fields" value="paymentMethod" checked> Payment Method</label>
+            </div>
+          </div>
+          
+          <button type="submit" class="action-btn">GENERATE EXPORT</button>
+        </form>
+      </section>
+      
+      <section class="export-preview">
+        <h2>Export Preview:</h2>
+        <pre id="exportPreview">
+Your export preview will appear here after generating the export.
+        </pre>
+      </section>
+    </main>
+  </div>
+
+  <script src="../javascript/order-export-oders.js"></script>
+</body>
+</html>

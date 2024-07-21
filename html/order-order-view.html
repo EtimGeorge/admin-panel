@@ -1,0 +1,106 @@
+<!-- <html><head><base href="https://barbshoestore.com/admin/#orders/view/written"> -->
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/order-order-view.css">
+  <title> Order View </title>
+
+</head>
+<body>
+  <div class="admin-container">
+    <aside class="sidebar">
+      <h2>ADMIN PANEL</h2>
+      <nav>
+        <ul>
+          <li><a href="../html/admin-dashboard.html">Dashboard</a></li>
+          <li><a href="../html/admin-inventory.html">Inventory</a></li>
+          <li><a href="../html/admin-order-management.html" class="active">Orders</a></li>
+          <li><a href="#customers">Customers</a></li>
+          <li><a href="#analytics">Analytics</a></li>
+          <li><a href="#settings">Settings</a></li>
+        </ul>
+      </nav>
+    </aside>
+    
+    <main class="main-content">
+      <header class="order-header">
+        <h1>ORDER #12346</h1>
+        <div class="user-info">
+          <div class="user-avatar">B</div>
+          <button class="logout-btn">LOGOUT</button>
+        </div>
+      </header>
+      
+      <section class="order-details">
+        <div class="order-info">
+          <h2>Order Information</h2>
+          <div class="info-grid">
+            <span class="info-label">Order ID:</span>
+            <span>#12346</span>
+            <span class="info-label">Date:</span>
+            <span>2023-07-16</span>
+            <span class="info-label">Status:</span>
+            <span class="order-status status-processing">PROCESSING</span>
+            <span class="info-label">Total:</span>
+            <span>$259.97</span>
+          </div>
+        </div>
+        
+        <div class="customer-info">
+          <h2>Customer Information</h2>
+          <div class="info-grid">
+            <span class="info-label">Name:</span>
+            <span>Jane Smith</span>
+            <span class="info-label">Email:</span>
+            <span>jane.smith@email.com</span>
+            <span class="info-label">Phone:</span>
+            <span>(555) 123-4567</span>
+            <span class="info-label">Address:</span>
+            <span>123 Main St, Anytown, ST 12345</span>
+          </div>
+        </div>
+        
+        <div class="order-items">
+          <h2>Order Items</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>Product</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th>Subtotal</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Running Sneakers</td>
+                <td>1</td>
+                <td>$129.99</td>
+                <td>$129.99</td>
+              </tr>
+              <tr>
+                <td>Casual Sandals</td>
+                <td>2</td>
+                <td>$64.99</td>
+                <td>$129.98</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        
+        <div class="order-actions">
+          <h2>Actions</h2>
+          <a href="../html/update-order-status.html"><button class="action-btn" id="updateStatusBtn">UPDATE STATUS</button></a>
+          <button class="action-btn" id="sendEmailBtn"><a href="../html/order-view-send-email.html">SEND EMAIL</a></button>
+          <button class="action-btn" id="printInvoiceBtn"><a href="../html/order-view-print-invoice.html">PRINT INVOICE</a></button>
+          <button class="action-btn cancel" id="cancelOrderBtn"><a href="../html/">CANCEL ORDER</a></button>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="../javascript/order-order-view.js" ></script>
+</body>
+</html>

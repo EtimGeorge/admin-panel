@@ -1,0 +1,197 @@
+<html><head><base href="/admin/login"><title>Barb's Shoe Store - Admin Login</title>
+<style>
+  body {
+    font-family: 'Montserrat', sans-serif;
+    background: linear-gradient(135deg, #00FFFF, #FF00FF);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: #FFFFFF;
+  }
+  
+  .login-container {
+    background-color: rgba(13, 13, 13, 0.8);
+    border-radius: 15px;
+    padding: 2em;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    max-width: 400px;
+    width: 100%;
+  }
+  
+  h1 {
+    font-size: 2em;
+    margin-bottom: 0.5em;
+    color: #FFD700;
+  }
+  
+  p {
+    font-size: 1.1em;
+    margin-bottom: 1.5em;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  input {
+    width: 100%;
+    padding: 0.75em;
+    margin-bottom: 1em;
+    border: none;
+    border-radius: 25px;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #FFFFFF;
+    font-size: 1em;
+  }
+  
+  input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+  }
+  
+  button {
+    background: linear-gradient(45deg, #00FFFF, #FF00FF);
+    color: #0D0D0D;
+    border: none;
+    padding: 0.75em 1.5em;
+    font-size: 1.1em;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.4);
+  }
+  
+  .forgot-password {
+    margin-top: 1em;
+    color: #CCCCCC;
+    text-decoration: none;
+    font-size: 0.9em;
+  }
+  
+  .forgot-password:hover {
+    color: #FFFFFF;
+    text-decoration: underline;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  .login-container > * {
+    animation: fadeIn 0.5s ease-out forwards;
+  }
+</style>
+</head>
+<body>
+  <div class="login-container">
+    <h1>Saencrystal Specialty Store</h1>
+    <p>Admin Login</p>
+    <form id="loginForm" method="GET" action="../html/admin-dashboard.html">
+      <input type="text" name="username" placeholder="Username" required>
+      <input type="password" name="password" placeholder="Password" required>
+      <button type="submit">Log In</button>
+    </form>
+    <a href="/admin/forgot-password" class="forgot-password">Forgot Password?</a>
+  </div>
+
+  <script>
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const username = this.username.value;
+      const password = this.password.value;
+      
+      // In a real application, you would send this data to a server for authentication
+      // For this simulation, we'll just log to the console and redirect
+      console.log('Login attempt:', { username, password });
+      
+      // Simulating a successful login
+      localStorage.setItem('adminSessionToken', 'simulated_token_' + Date.now());
+      
+      // Redirect to the admin dashboard
+      window.location.href = this.action;
+    });
+    
+    // Add a custom cursor effect
+    const cursor = document.createElement('div');
+    cursor.style.position = 'fixed';
+    cursor.style.width = '20px';
+    cursor.style.height = '20px';
+    cursor.style.borderRadius = '50%';
+    cursor.style.backgroundColor = 'rgba(255, 255, 255, 0.5)';
+    cursor.style.pointerEvents = 'none';
+    cursor.style.transition = 'transform 0.1s ease';
+    document.body.appendChild(cursor);
+    
+    document.addEventListener('mousemove', (e) => {
+      cursor.style.left = e.clientX + 'px';
+      cursor.style.top = e.clientY + 'px';
+    });
+    
+    document.addEventListener('mousedown', () => {
+      cursor.style.transform = 'scale(0.8)';
+    });
+    
+    document.addEventListener('mouseup', () => {
+      cursor.style.transform = 'scale(1)';
+    });
+    
+    // Add some visual flair with animated background particles
+    const particlesContainer = document.createElement('div');
+    particlesContainer.style.position = 'fixed';
+    particlesContainer.style.top = '0';
+    particlesContainer.style.left = '0';
+    particlesContainer.style.width = '100%';
+    particlesContainer.style.height = '100%';
+    particlesContainer.style.pointerEvents = 'none';
+    particlesContainer.style.zIndex = '-1';
+    document.body.appendChild(particlesContainer);
+    
+    function createParticle() {
+      const particle = document.createElement('div');
+      particle.style.position = 'absolute';
+      particle.style.width = '5px';
+      particle.style.height = '5px';
+      particle.style.backgroundColor = 'rgba(255, 255, 255, 0.5)';
+      particle.style.borderRadius = '50%';
+      particle.style.pointerEvents = 'none';
+      
+      const startX = Math.random() * window.innerWidth;
+      const startY = Math.random() * window.innerHeight;
+      const endX = Math.random() * window.innerWidth;
+      const endY = Math.random() * window.innerHeight;
+      
+      particle.style.left = startX + 'px';
+      particle.style.top = startY + 'px';
+      
+      particlesContainer.appendChild(particle);
+      
+      particle.animate([
+        { transform: `translate(0, 0)`, opacity: 0 },
+        { opacity: 1, offset: 0.2 },
+        { transform: `translate(${endX - startX}px, ${endY - startY}px)`, opacity: 0 }
+      ], {
+        duration: 5000 + Math.random() * 5000,
+        easing: 'ease-out'
+      }).onfinish = () => {
+        particle.remove();
+        createParticle();
+      };
+    }
+    
+    for (let i = 0; i < 50; i++) {
+      createParticle();
+    }
+  </script>
+</body>
+</html>

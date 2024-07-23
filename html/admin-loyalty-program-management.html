@@ -1,0 +1,158 @@
+<!-- <html><head><base href="https://store.com/admin/#customers/loyalty%20program/written/keep%20the%20same%20but%20link%20this%20page%20to%20https://websim.ai/@hiddenhill78978834/barbshoestore-com-admin-loyalty-management-program"> -->
+
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+    <link rel="stylesheet" href="../css/admin-loyalty-program-management.css">
+  
+  <title>Loyalty Program Management</title>
+<style>
+ 
+</style>
+</head>
+<body>
+  <div class="admin-container">
+    <aside class="sidebar">
+      <h2>ADMIN PANEL</h2>
+      <nav>
+        <ul>
+          <li><a href="../html/admin-dashboard.html">Dashboard</a></li>
+          <li><a href="../html/admin-inventory.html">Inventory</a></li>
+          <li><a href="../html/admin-order-management.html">Orders</a></li>
+          <li><a href="../html/admin-customer-management.html">Customers</a></li>
+          <li><a href="../html/admin-loyalty-program-management.html" class="active">Loyalty Program</a></li>
+          <li><a href="../html/admin-analytics-dashboard.html">Analytics</a></li>
+          <li><a href="../html/admin-enhanced-settings.html">Settings</a></li>
+        </ul>
+      </nav>
+    </aside>
+    
+    <main class="main-content">
+      <header class="page-header">
+        <h1>LOYALTY PROGRAM MANAGEMENT</h1>
+        <div class="user-info">
+          <div class="user-avatar">B</div>
+          <button class="logout-btn">LOGOUT</button>
+        </div>
+      </header>
+      
+      <section class="card">
+        <h2>Loyalty Tiers</h2>
+        <div class="tier-list">
+          <div class="tier">
+            <h3>Bronze</h3>
+            <ul>
+              <li>5% discount on all purchases</li>
+              <li>Free shipping on orders over $50</li>
+              <li>Early access to sales</li>
+            </ul>
+            <div class="tier-actions">
+              <button class="btn edit-tier" data-tier="Bronze">Edit</button>
+              <button class="btn view-members" data-tier="Bronze">View Members</button>
+            </div>
+          </div>
+          <div class="tier">
+            <h3>Silver</h3>
+            <ul>
+              <li>10% discount on all purchases</li>
+              <li>Free shipping on all orders</li>
+              <li>Exclusive Silver member events</li>
+              <li>Birthday gift</li>
+            </ul>
+            <div class="tier-actions">
+              <button class="btn edit-tier" data-tier="Silver">Edit</button>
+              <button class="btn view-members" data-tier="Silver">View Members</button>
+            </div>
+          </div>
+          <div class="tier">
+            <h3>Gold</h3>
+            <ul>
+              <li>15% discount on all purchases</li>
+              <li>Free next-day shipping</li>
+              <li>Personalized shoe recommendations</li>
+              <li>VIP customer service line</li>
+              <li>Annual free pair of shoes</li>
+            </ul>
+            <div class="tier-actions">
+              <button class="btn edit-tier" data-tier="Gold">Edit</button>
+              <button class="btn view-members" data-tier="Gold">View Members</button>
+            </div>
+          </div>
+        </div>
+        <button class="btn" id="addTier">Add New Tier</button>
+      </section>
+      
+      <section class="card">
+        <h2>Loyalty Program Statistics</h2>
+        <div class="stats">
+          <div class="stat-card">
+            <h3>Total Members</h3>
+            <div class="stat-value">1,234</div>
+          </div>
+          <div class="stat-card">
+            <h3>Bronze Members</h3>
+            <div class="stat-value">876</div>
+          </div>
+          <div class="stat-card">
+            <h3>Silver Members</h3>
+            <div class="stat-value">287</div>
+          </div>
+          <div class="stat-card">
+            <h3>Gold Members</h3>
+            <div class="stat-value">71</div>
+          </div>
+          <div class="stat-card">
+            <h3>Average Order Value</h3>
+            <div class="stat-value">$135</div>
+          </div>
+          <div class="stat-card">
+            <h3>Loyalty Revenue</h3>
+            <div class="stat-value">$98,765</div>
+          </div>
+        </div>
+      </section>
+      
+      <section class="card">
+        <h2>Current Loyalty Offers</h2>
+        <div class="offers">
+          <div class="offer">
+            <h3>Summer Sandal Splash</h3>
+            <p>Get an extra 10% off all sandals for loyalty members.</p>
+            <p><strong>Valid until:</strong> August 31, 2023</p>
+            <button class="btn edit-offer">Edit Offer</button>
+          </div>
+          <div class="offer">
+            <h3>Back to School Bonanza</h3>
+            <p>Earn double points on all kids' shoes purchases.</p>
+            <p><strong>Valid until:</strong> September 15, 2023</p>
+            <button class="btn edit-offer">Edit Offer</button>
+          </div>
+          <div class="offer">
+            <h3>Fall Fashion Frenzy</h3>
+            <p>Exclusive early access to our Fall collection for Gold members.</p>
+            <p><strong>Valid until:</strong> October 1, 2023</p>
+            <button class="btn edit-offer">Edit Offer</button>
+          </div>
+        </div>
+        <button class="btn" id="addOffer">Create New Offer</button>
+      </section>
+
+      <a href="../html/integrated-loyalty-management-program.html" class="websim-link" target="_blank">View in Store</a>
+    </main>
+  </div>
+
+  <!-- Modal -->
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2 id="modalTitle"></h2>
+      <div id="modalContent"></div>
+    </div>
+  </div>
+
+  <script src="../javascript/admin-loyalty-program-management.js"></script>
+</body>
+</html>

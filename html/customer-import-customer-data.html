@@ -1,0 +1,85 @@
+<!-- <html><head><base href="https:// -->
+
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="../css/customer-import-customer-data.css">
+  
+  <title> Import Customer Data</title>
+
+</head>
+<body>
+  <div class="admin-container">
+    <aside  class="sidebar">
+      <h2 >ADMIN PANEL</h2>
+      <nav>
+        <ul>
+          <li><a href="../html/admin-dashboard.html">Dashboard</a></li>
+          <li><a href="../html/admin-inventory.html">Inventory</a></li>
+          <li><a href="../html/admin-order-management.html">Orders</a></li>
+          <li><a href="../html/admin-customer-management.html" class="active">Customers</a></li>
+          <li><a href="../html/admin-analytics-dashboard.html">Analytics</a></li>
+          <li><a href="../html/admin-enhanced-settings.html">Settings</a></li>
+        </ul>
+      </nav>
+    </aside>
+    
+    <main class="main-content">
+      <header class="page-header">
+        <h1 class="neon-text">IMPORT CUSTOMER DATA</h1>
+        <div class="user-info">
+          <div class="user-avatar ">B</div>
+          <button class="logout-btn">LOGOUT</button>
+        </div>
+      </header>
+      
+      <div class="import-container">
+        <form class="import-form" id="importForm">
+          <div class="form-group">
+            <label for="importFile">Select File to Import:</label>
+            <input type="file" id="importFile" name="importFile" accept=".csv,.xlsx,.json" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="importType">Import Type:</label>
+            <select id="importType" name="importType" required>
+              <option value="">Select import type</option>
+              <option value="new">New Customers Only</option>
+              <option value="update">Update Existing Customers</option>
+              <option value="both">Both New and Update</option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label for="duplicateHandling">Duplicate Handling:</label>
+            <select id="duplicateHandling" name="duplicateHandling" required>
+              <option value="">Select duplicate handling method</option>
+              <option value="skip">Skip Duplicates</option>
+              <option value="overwrite">Overwrite Duplicates</option>
+              <option value="merge">Merge Data</option>
+            </select>
+          </div>
+          
+          <button type="submit" class="submit-btn">IMPORT DATA</button>
+        </form>
+        
+        <div class="import-info">
+          <h3>Import Guidelines</h3>
+          <ul>
+            <li>Supported file formats: CSV, Excel (.xlsx), JSON</li>
+            <li>Maximum file size: 10MB</li>
+            <li>Required fields: Name, Email, Phone</li>
+            <li>Optional fields: Address, Birthday, Loyalty Points</li>
+            <li>For large imports, please use our bulk import API</li>
+          </ul>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="../javascript/customer-import-customer-data.js"></script>
+</body>
+</html>

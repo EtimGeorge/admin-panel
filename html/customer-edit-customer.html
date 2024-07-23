@@ -1,0 +1,344 @@
+<!-- <html><head><base href="https://barbshoestore.com/admin/#customers/edit%20customer/written/in%20the%20phone%20number%20input%20add%20options%20of%20all%20country%20dialing%20codes"> -->
+  
+  <title>Barb's Shoe Store - Edit Customer</title>
+<style>
+  :root {
+    --primary-color: #00FFFF;
+    --secondary-color: #FF00FF;
+    --background-color: #0D0D0D;
+    --card-background: #1A1A1A;
+    --text-color: #FFFFFF;
+    --text-light: #CCCCCC;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    --accent-color: #FFD700;
+    --success-color: #00FF00;
+    --warning-color: #FF4500;
+    --error-color: #FF0000;
+  }
+  
+  body {
+    font-family: 'Courier New', monospace;
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-color);
+    color: var(--text-color);
+  }
+  
+  .admin-container {
+    display: flex;
+    min-height: 100vh;
+  }
+  
+  .sidebar {
+    width: 250px;
+    background-color: var(--card-background);
+    padding: 2em 1em;
+    border-right: 1px solid var(--primary-color);
+  }
+  
+  .sidebar h2 {
+    color: var(--primary-color);
+    margin-bottom: 1em;
+    text-align: center;
+  }
+  
+  .sidebar ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .sidebar ul li {
+    margin-bottom: 0.5em;
+  }
+  
+  .sidebar ul li a {
+    color: var(--text-color);
+    text-decoration: none;
+    display: block;
+    padding: 0.5em 1em;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .sidebar ul li a:hover, .sidebar ul li a.active {
+    background-color: var(--primary-color);
+    color: var(--background-color);
+  }
+  
+  .main-content {
+    flex: 1;
+    padding: 2em;
+    overflow-y: auto;
+  }
+  
+  .page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2em;
+    border-bottom: 1px solid var(--primary-color);
+    padding-bottom: 1em;
+  }
+  
+  .page-header h1 {
+    color: var(--primary-color);
+  }
+  
+  .user-info {
+    display: flex;
+    align-items: center;
+  }
+  
+  .user-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--accent-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 1em;
+  }
+  
+  .logout-btn {
+    background-color: var(--warning-color);
+    color: var(--text-color);
+    border: none;
+    padding: 0.5em 1em;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .logout-btn:hover {
+    background-color: var(--accent-color);
+  }
+  
+  .edit-form {
+    background-color: var(--card-background);
+    padding: 2em;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+  }
+  
+  .form-group {
+    margin-bottom: 1.5em;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 0.5em;
+    color: var(--primary-color);
+  }
+  
+  .form-group input, .form-group select {
+    width: 100%;
+    padding: 0.5em;
+    border-radius: 4px;
+    border: 1px solid var(--primary-color);
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-family: 'Courier New', monospace;
+  }
+  
+  .form-group input[type="checkbox"] {
+    width: auto;
+    margin-right: 0.5em;
+  }
+  
+  .form-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2em;
+  }
+  
+  .btn {
+    padding: 0.5em 1em;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: 'Courier New', monospace;
+    font-size: 1em;
+    transition: all 0.3s ease;
+  }
+  
+  .btn-primary {
+    background-color: var(--primary-color);
+    color: var(--background-color);
+    border: none;
+  }
+  
+  .btn-secondary {
+    background-color: var(--card-background);
+    color: var(--text-color);
+    border: 1px solid var(--primary-color);
+  }
+  
+  .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow);
+  }
+  
+  .customer-avatar {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background-color: var(--accent-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3em;
+    margin: 0 auto 2em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .customer-avatar:hover {
+    transform: scale(1.05);
+    box-shadow: var(--shadow);
+  }
+  
+  .phone-input-container {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .phone-input-container select {
+    width: 30%;
+  }
+  
+  .phone-input-container input {
+    width: 70%;
+  }
+</style>
+</head>
+<body>
+  <div class="admin-container">
+    <aside class="sidebar">
+      <h2>ADMIN PANEL</h2>
+      <nav>
+        <ul>
+          <li><a href="#dashboard">Dashboard</a></li>
+          <li><a href="#inventory">Inventory</a></li>
+          <li><a href="#orders">Orders</a></li>
+          <li><a href="#customers" class="active">Customers</a></li>
+          <li><a href="#analytics">Analytics</a></li>
+          <li><a href="#settings">Settings</a></li>
+        </ul>
+      </nav>
+    </aside>
+    
+    <main class="main-content">
+      <header class="page-header">
+        <h1>EDIT CUSTOMER</h1>
+        <div class="user-info">
+          <div class="user-avatar">B</div>
+          <button class="logout-btn">LOGOUT</button>
+        </div>
+      </header>
+      
+      <div class="edit-form">
+        <div class="customer-avatar" id="customerAvatar">
+          AJ
+        </div>
+        <form id="editCustomerForm">
+          <div class="form-group">
+            <label for="name">Full Name:</label>
+            <input type="text" id="name" name="name" value="Alice Johnson" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="email">Email Address:</label>
+            <input type="email" id="email" name="email" value="alice@example.com" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="phone">Phone Number:</label>
+            <div class="phone-input-container">
+              <select id="countryCode" name="countryCode">
+                <option value="+1">+1 (USA/Canada)</option>
+                <option value="+44">+44 (UK)</option>
+                <option value="+61">+61 (Australia)</option>
+                <option value="+33">+33 (France)</option>
+                <option value="+49">+49 (Germany)</option>
+                <option value="+81">+81 (Japan)</option>
+                <option value="+86">+86 (China)</option>
+                <option value="+91">+91 (India)</option>
+                <option value="+52">+52 (Mexico)</option>
+                <option value="+55">+55 (Brazil)</option>
+                <option value="+7">+7 (Russia)</option>
+                <option value="+27">+27 (South Africa)</option>
+                <option value="+82">+82 (South Korea)</option>
+                <option value="+34">+34 (Spain)</option>
+                <option value="+39">+39 (Italy)</option>
+                <option value="+31">+31 (Netherlands)</option>
+                <option value="+46">+46 (Sweden)</option>
+                <option value="+47">+47 (Norway)</option>
+                <option value="+45">+45 (Denmark)</option>
+                <option value="+358">+358 (Finland)</option>
+              </select>
+              <input type="tel" id="phone" name="phone" value="555-0101" required>
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label for="birthdate">Birthdate:</label>
+            <input type="date" id="birthdate" name="birthdate" value="1985-07-15">
+          </div>
+          
+          <div class="form-group">
+            <label for="address">Address:</label>
+            <input type="text" id="address" name="address" value="123 Main St, Anytown, USA">
+          </div>
+          
+          <div class="form-group">
+            <label for="shoeSize">Shoe Size:</label>
+            <input type="number" id="shoeSize" name="shoeSize" value="8" step="0.5" min="4" max="15">
+          </div>
+          
+          <div class="form-group">
+            <label for="preferredStyle">Preferred Style:</label>
+            <select id="preferredStyle" name="preferredStyle">
+              <option value="casual" selected>Casual</option>
+              <option value="formal">Formal</option>
+              <option value="athletic">Athletic</option>
+              <option value="sandals">Sandals</option>
+              <option value="boots">Boots</option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label for="loyaltyTier">Loyalty Tier:</label>
+            <select id="loyaltyTier" name="loyaltyTier">
+              <option value="bronze">Bronze</option>
+              <option value="silver" selected>Silver</option>
+              <option value="gold">Gold</option>
+              <option value="platinum">Platinum</option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label>
+              <input type="checkbox" id="newsletter" name="newsletter" checked>
+              Subscribe to newsletter
+            </label>
+          </div>
+          
+          <div class="form-group">
+            <label>
+              <input type="checkbox" id="smsNotifications" name="smsNotifications" checked>
+              Receive SMS notifications
+            </label>
+          </div>
+          
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary">Save Changes</button>
+            <button type="button" class="btn btn-secondary" id="cancelBtn">Cancel</button>
+          </div>
+        </form>
+      </div>
+    </main>
+  </div>
+
+  <script src="../javascript/customer-edit-customer.js"></script>
+</body>
+</html>

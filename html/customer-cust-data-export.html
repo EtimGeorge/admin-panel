@@ -1,0 +1,169 @@
+<!-- <html><head><base href="https:// -->
+  
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <link rel="stylesheet" href="../css/customer-cust-data-export.css">
+
+  <title>Customer Data Export</title>
+
+  <div class="admin-container">
+    <aside class="sidebar">
+      <h2>ADMIN PANEL</h2>
+      <nav>
+        <ul>
+          <li><a href="../html/admin-dashboard.html">Dashboard</a></li>
+          <li><a href="../html/admin-inventory.html">Inventory</a></li>
+          <li><a href="../html/admin-order-management.html">Orders</a></li>
+          <li><a href="../html/admin-customer-management.html" class="active">Customers</a></li>
+          <li><a href="../html/admin-analytics-dashboard.html">Analytics</a></li>
+          <li><a href="../html/admin-enhanced-settings.html">Settings</a></li>
+        </ul>
+      </nav>
+    </aside>
+    
+    <main class="main-content">
+      <header class="page-header">
+        <h1>CUSTOMER DATA EXPORT</h1>
+        <div class="user-info">
+          <div class="user-avatar">B</div>
+          <button class="logout-btn">LOGOUT</button>
+        </div>
+      </header>
+      
+      <div class="data-source">
+        <h3>Data Source</h3>
+        <p>Select the data source for your customer export:</p>
+        <select id="dataSource" onchange="updateDataSource()">
+          <option value="live">Live Database</option>
+          <option value="backup">Backup Database</option>
+          <option value="archive">Archived Records</option>
+          <option value="crm">CRM System</option>
+          <option value="analytics">Analytics Platform</option>
+        </select>
+      </div>
+
+      <div class="customer-selection">
+        <h3>Customer Selection</h3>
+        <p>Select the customers you want to include in the export:</p>
+        <select id="selectionType" onchange="updateSelectionType()">
+          <option value="all">All Customers</option>
+          <option value="individual">Select Individual Customers</option>
+          <option value="group">Select Customer Groups</option>
+        </select>
+
+        <div id="individualSelection" style="display: none;">
+          <div class="customer-list">
+            <div class="customer-item">
+              <input type="checkbox" id="customer1" name="customer1">
+              <label for="customer1">Alice Johnson (ID: 1001)</label>
+            </div>
+            <div class="customer-item">
+              <input type="checkbox" id="customer2" name="customer2">
+              <label for="customer2">Bob Smith (ID: 1002)</label>
+            </div>
+            <div class="customer-item">
+              <input type="checkbox" id="customer3" name="customer3">
+              <label for="customer3">Carol Davis (ID: 1003)</label>
+            </div>
+            <div class="customer-item">
+              <input type="checkbox" id="customer4" name="customer4">
+              <label for="customer4">David Brown (ID: 1004)</label>
+            </div>
+            <div class="customer-item">
+              <input type="checkbox" id="customer5" name="customer5">
+              <label for="customer5">Eve Wilson (ID: 1005)</label>
+            </div>
+          </div>
+          <div class="select-all">
+            <input type="checkbox" id="selectAll" name="selectAll" onchange="toggleAllCustomers()">
+            <label for="selectAll">Select All</label>
+          </div>
+        </div>
+
+        <div id="groupSelection" style="display: none;">
+          <select id="customerGroup" multiple>
+            <option value="new">New Customers (Last 30 days)</option>
+            <option value="vip">VIP Customers</option>
+            <option value="inactive">Inactive Customers (No purchase in 6 months)</option>
+            <option value="highValue">High-Value Customers (Lifetime value > $1000)</option>
+            <option value="recentPurchase">Recent Purchasers (Last 7 days)</option>
+          </select>
+        </div>
+      </div>
+
+      <p>Select the format and options for your customer data export:</p>
+      
+      <div class="export-options">
+        <div class="export-card">
+          <h3>CSV Export</h3>
+          <p>Export your customer data in CSV format. Ideal for spreadsheet software.</p>
+          <button class="export-btn" onclick="startExport('csv')">Export CSV</button>
+          <div class="export-progress">
+            <div class="progress-bar" id="csvProgress"></div>
+          </div>
+        </div>
+        
+        <div class="export-card">
+          <h3>Excel Export</h3>
+          <p>Export your customer data in Excel format. Perfect for advanced data analysis.</p>
+          <button class="export-btn" onclick="startExport('excel')">Export Excel</button>
+          <div class="export-progress">
+            <div class="progress-bar" id="excelProgress"></div>
+          </div>
+        </div>
+        
+        <div class="export-card">
+          <h3>JSON Export</h3>
+          <p>Export your customer data in JSON format. Ideal for developers and data integration.</p>
+          <button class="export-btn" onclick="startExport('json')">Export JSON</button>
+          <div class="export-progress">
+            <div class="progress-bar" id="jsonProgress"></div>
+          </div>
+        </div>
+        
+        <div class="export-card">
+          <h3>XML Export</h3>
+          <p>Export your customer data in XML format. Suitable for legacy systems and certain APIs.</p>
+          <button class="export-btn" onclick="startExport('xml')">Export XML</button>
+          <div class="export-progress">
+            <div class="progress-bar" id="xmlProgress"></div>
+          </div>
+        </div>
+
+        <div class="export-card">
+          <h3>PDF Export</h3>
+          <p>Export your customer data in PDF format. Great for printable reports and archiving.</p>
+          <button class="export-btn" onclick="startExport('pdf')">Export PDF</button>
+          <div class="export-progress">
+            <div class="progress-bar" id="pdfProgress"></div>
+          </div>
+        </div>
+
+        <div class="export-card">
+          <h3>MS Word Export</h3>
+          <p>Export your customer data in MS Word format. Useful for editable reports and documentation.</p>
+          <button class="export-btn" onclick="startExport('word')">Export Word</button>
+          <div class="export-progress">
+            <div class="progress-bar" id="wordProgress"></div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="preview-container">
+        <h3>Export Preview</h3>
+        <div class="preview-content" id="previewContent">
+          Select an export format and click the export button to generate a preview.
+        </div>
+      </div>
+      
+      <div class="data-flow"></div>
+    </main>
+  </div>
+
+  <script src="../javascript/customer-cust-data-export.js"></script>
+</body>
+</html>

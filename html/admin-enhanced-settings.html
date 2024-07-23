@@ -1,0 +1,524 @@
+<html><head><base href="https://barbshoestore.com/admin/#dashboard/settings/written/keep%20the%20same,%20but%20add%20option%20for%20integrating%20external%20APIs%20and%20settings%20for%20payment%20method%20and%20their%20APIs%20add%20naira%20to%20the%20currency,%20and%20add%20bank%20transfer%20to%20the%20options."><title>Barb's Shoe Store - Enhanced Admin Settings (Written)</title>
+<style>
+  :root {
+    --primary-color: #00FFFF;
+    --secondary-color: #FF00FF;
+    --background-color: #0D0D0D;
+    --card-background: #1A1A1A;
+    --text-color: #FFFFFF;
+    --text-light: #CCCCCC;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    --accent-color: #FFD700;
+    --success-color: #00FF00;
+    --warning-color: #FF4500;
+  }
+  
+  body {
+    font-family: 'Courier New', monospace;
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+  }
+  
+  .admin-container {
+    display: flex;
+    min-height: 100vh;
+  }
+  
+  .sidebar {
+    width: 250px;
+    background-color: var(--card-background);
+    padding: 2em 1em;
+    border-right: 1px solid var(--primary-color);
+  }
+  
+  .sidebar h2 {
+    color: var(--primary-color);
+    margin-bottom: 1em;
+    text-align: center;
+  }
+  
+  .sidebar ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .sidebar ul li {
+    margin-bottom: 0.5em;
+  }
+  
+  .sidebar ul li a {
+    color: var(--text-color);
+    text-decoration: none;
+    display: block;
+    padding: 0.5em 1em;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .sidebar ul li a:hover, .sidebar ul li a.active {
+    background-color: var(--primary-color);
+    color: var(--background-color);
+  }
+  
+  .main-content {
+    flex: 1;
+    padding: 2em;
+    overflow-y: auto;
+  }
+  
+  .settings-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2em;
+    border-bottom: 1px solid var(--primary-color);
+    padding-bottom: 1em;
+  }
+  
+  .settings-header h1 {
+    color: var(--primary-color);
+  }
+  
+  .user-info {
+    display: flex;
+    align-items: center;
+  }
+  
+  .user-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--accent-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 1em;
+  }
+  
+  .logout-btn {
+    background-color: var(--warning-color);
+    color: var(--text-color);
+    border: none;
+    padding: 0.5em 1em;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .logout-btn:hover {
+    background-color: var(--accent-color);
+  }
+  
+  .settings-section {
+    margin-bottom: 2em;
+    border: 1px solid var(--primary-color);
+    padding: 1em;
+    border-radius: 4px;
+  }
+  
+  .settings-section h2 {
+    color: var(--primary-color);
+    margin-top: 0;
+    border-bottom: 1px solid var(--text-light);
+    padding-bottom: 0.5em;
+  }
+  
+  .form-group {
+    margin-bottom: 1em;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 0.5em;
+    color: var(--text-light);
+  }
+  
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  select,
+  textarea {
+    width: 100%;
+    padding: 0.5em;
+    border: 1px solid var(--text-light);
+    background-color: var(--card-background);
+    color: var(--text-color);
+    border-radius: 4px;
+  }
+  
+  button {
+    background-color: var(--primary-color);
+    color: var(--background-color);
+    border: none;
+    padding: 0.5em 1em;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: var(--accent-color);
+  }
+  
+  .toggle-switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+  }
+  
+  .toggle-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--card-background);
+    transition: .4s;
+    border-radius: 34px;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: var(--text-color);
+    transition: .4s;
+    border-radius: 50%;
+  }
+  
+  input:checked + .slider {
+    background-color: var(--primary-color);
+  }
+  
+  input:checked + .slider:before {
+    transform: translateX(26px);
+  }
+</style>
+</head>
+<body>
+  <div class="admin-container">
+    <aside class="sidebar">
+      <h2>ADMIN PANEL</h2>
+      <nav>
+        <ul>
+          <li><a href="#dashboard">Dashboard</a></li>
+          <li><a href="#inventory">Inventory</a></li>
+          <li><a href="#orders">Orders</a></li>
+          <li><a href="#customers">Customers</a></li>
+          <li><a href="#analytics">Analytics</a></li>
+          <li><a href="#settings" class="active">Settings</a></li>
+        </ul>
+      </nav>
+    </aside>
+    
+    <main class="main-content">
+      <header class="settings-header">
+        <h1>ENHANCED SETTINGS</h1>
+        <div class="user-info">
+          <div class="user-avatar">B</div>
+          <button class="logout-btn">LOGOUT</button>
+        </div>
+      </header>
+      
+      <section class="settings-section">
+        <h2>GENERAL SETTINGS</h2>
+        <form id="general-settings-form">
+          <div class="form-group">
+            <label for="store-name">Store Name:</label>
+            <input type="text" id="store-name" name="store-name" value="Barb's Shoe Store">
+          </div>
+          <div class="form-group">
+            <label for="store-email">Store Email:</label>
+            <input type="email" id="store-email" name="store-email" value="contact@barbshoestore.com">
+          </div>
+          <div class="form-group">
+            <label for="currency">Currency:</label>
+            <select id="currency" name="currency">
+              <option value="USD" selected>US Dollar (USD)</option>
+              <option value="EUR">Euro (EUR)</option>
+              <option value="GBP">British Pound (GBP)</option>
+              <option value="JPY">Japanese Yen (JPY)</option>
+              <option value="NGN">Nigerian Naira (NGN)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="timezone">Timezone:</label>
+            <select id="timezone" name="timezone">
+              <option value="UTC-8" selected>Pacific Time (PT)</option>
+              <option value="UTC-5">Eastern Time (ET)</option>
+              <option value="UTC+0">Coordinated Universal Time (UTC)</option>
+              <option value="UTC+1">Central European Time (CET)</option>
+              <option value="UTC+1">West Africa Time (WAT)</option>
+            </select>
+          </div>
+          <button type="submit">Save General Settings</button>
+        </form>
+      </section>
+      
+      <section class="settings-section">
+        <h2>PAYMENT METHODS AND APIS</h2>
+        <form id="payment-settings-form">
+          <div class="form-group">
+            <label for="paypal-integration">
+              PayPal Integration:
+              <label class="toggle-switch">
+                <input type="checkbox" id="paypal-integration" name="paypal-integration" checked>
+                <span class="slider"></span>
+              </label>
+            </label>
+          </div>
+          <div class="form-group">
+            <label for="paypal-api-key">PayPal API Key:</label>
+            <input type="text" id="paypal-api-key" name="paypal-api-key" value="live_paypal_api_key_123456">
+          </div>
+          <div class="form-group">
+            <label for="stripe-integration">
+              Stripe Integration:
+              <label class="toggle-switch">
+                <input type="checkbox" id="stripe-integration" name="stripe-integration" checked>
+                <span class="slider"></span>
+              </label>
+            </label>
+          </div>
+          <div class="form-group">
+            <label for="stripe-api-key">Stripe API Key:</label>
+            <input type="text" id="stripe-api-key" name="stripe-api-key" value="sk_live_stripe_key_789012">
+          </div>
+          <div class="form-group">
+            <label for="bank-transfer">
+              Bank Transfer:
+              <label class="toggle-switch">
+                <input type="checkbox" id="bank-transfer" name="bank-transfer">
+                <span class="slider"></span>
+              </label>
+            </label>
+          </div>
+          <div class="form-group">
+            <label for="bank-account">Bank Account Details:</label>
+            <textarea id="bank-account" name="bank-account" rows="3" placeholder="Enter bank account details for transfers"></textarea>
+          </div>
+          <button type="submit">Save Payment Settings</button>
+        </form>
+      </section>
+      
+      <section class="settings-section">
+        <h2>EXTERNAL API INTEGRATIONS</h2>
+        <form id="external-api-settings-form">
+          <div class="form-group">
+            <label for="shipping-api">
+              Shipping API Integration:
+              <label class="toggle-switch">
+                <input type="checkbox" id="shipping-api" name="shipping-api" checked>
+                <span class="slider"></span>
+              </label>
+            </label>
+          </div>
+          <div class="form-group">
+            <label for="shipping-api-key">Shipping API Key:</label>
+            <input type="text" id="shipping-api-key" name="shipping-api-key" value="ship_api_key_345678">
+          </div>
+          <div class="form-group">
+            <label for="inventory-api">
+              Inventory Management API:
+              <label class="toggle-switch">
+                <input type="checkbox" id="inventory-api" name="inventory-api">
+                <span class="slider"></span>
+              </label>
+            </label>
+          </div>
+          <div class="form-group">
+            <label for="inventory-api-key">Inventory API Key:</label>
+            <input type="text" id="inventory-api-key" name="inventory-api-key" placeholder="Enter Inventory API Key">
+          </div>
+          <div class="form-group">
+            <label for="crm-api">
+              CRM API Integration:
+              <label class="toggle-switch">
+                <input type="checkbox" id="crm-api" name="crm-api">
+                <span class="slider"></span>
+              </label>
+            </label>
+          </div>
+          <div class="form-group">
+            <label for="crm-api-key">CRM API Key:</label>
+            <input type="text" id="crm-api-key" name="crm-api-key" placeholder="Enter CRM API Key">
+          </div>
+          <button type="submit">Save External API Settings</button>
+        </form>
+      </section>
+      
+      <section class="settings-section">
+        <h2>SECURITY SETTINGS</h2>
+        <form id="security-settings-form">
+          <div class="form-group">
+            <label for="current-password">Current Password:</label>
+            <input type="password" id="current-password" name="current-password">
+          </div>
+          <div class="form-group">
+            <label for="new-password">New Password:</label>
+            <input type="password" id="new-password" name="new-password">
+          </div>
+          <div class="form-group">
+            <label for="confirm-password">Confirm New Password:</label>
+            <input type="password" id="confirm-password" name="confirm-password">
+          </div>
+          <div class="form-group">
+            <label for="two-factor-auth">
+              Enable Two-Factor Authentication:
+              <label class="toggle-switch">
+                <input type="checkbox" id="two-factor-auth" name="two-factor-auth">
+                <span class="slider"></span>
+              </label>
+            </label>
+          </div>
+          <button type="submit">Update Security Settings</button>
+        </form>
+      </section>
+      
+      <section class="settings-section">
+        <h2>NOTIFICATION PREFERENCES</h2>
+        <form id="notification-settings-form">
+          <div class="form-group">
+            <label for="email-notifications">
+              Email Notifications:
+              <label class="toggle-switch">
+                <input type="checkbox" id="email-notifications" name="email-notifications" checked>
+                <span class="slider"></span>
+              </label>
+            </label>
+          </div>
+          <div class="form-group">
+            <label for="sms-notifications">
+              SMS Notifications:
+              <label class="toggle-switch">
+                <input type="checkbox" id="sms-notifications" name="sms-notifications">
+                <span class="slider"></span>
+              </label>
+            </label>
+          </div>
+          <div class="form-group">
+            <label for="notification-frequency">Notification Frequency:</label>
+            <select id="notification-frequency" name="notification-frequency">
+              <option value="immediate">Immediate</option>
+              <option value="hourly" selected>Hourly Digest</option>
+              <option value="daily">Daily Digest</option>
+              <option value="weekly">Weekly Digest</option>
+            </select>
+          </div>
+          <button type="submit">Save Notification Preferences</button>
+        </form>
+      </section>
+      
+      <section class="settings-section">
+        <h2>API INTEGRATION</h2>
+        <form id="api-settings-form">
+          <div class="form-group">
+            <label for="api-key">API Key:</label>
+            <input type="text" id="api-key" name="api-key" value="sk_live_51ABc123XyZ456..." readonly>
+          </div>
+          <div class="form-group">
+            <label for="webhook-url">Webhook URL:</label>
+            <input type="text" id="webhook-url" name="webhook-url" value="https://barbshoestore.com/api/webhook">
+          </div>
+          <button type="button" id="regenerate-api-key">Regenerate API Key</button>
+          <button type="submit">Save API Settings</button>
+        </form>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    document.querySelector('.logout-btn').addEventListener('click', function() {
+      alert('Logging out...');
+      // In a real application, this would handle the logout process
+      window.location.href = '/admin/logout';
+    });
+
+    // Form submission handlers
+    document.getElementById('general-settings-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('General settings saved!');
+    });
+
+    document.getElementById('payment-settings-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('Payment settings saved!');
+    });
+
+    document.getElementById('external-api-settings-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('External API settings saved!');
+    });
+
+    document.getElementById('security-settings-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('Security settings updated!');
+    });
+
+    document.getElementById('notification-settings-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('Notification preferences saved!');
+    });
+
+    document.getElementById('api-settings-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('API settings saved!');
+    });
+
+    // API Key regeneration
+    document.getElementById('regenerate-api-key').addEventListener('click', function() {
+      if (confirm('Are you sure you want to regenerate your API key? This will invalidate the current key.')) {
+        document.getElementById('api-key').value = 'sk_live_' + Math.random().toString(36).substr(2, 32);
+        alert('New API key generated!');
+      }
+    });
+
+    // Activity logging
+    function logAdminActivity(activity) {
+      console.log('Admin activity:', activity);
+      // In a real implementation, this would send logs to a secure server
+    }
+
+    // Log page load
+    logAdminActivity('Accessed enhanced settings dashboard');
+
+    // Log form submissions
+    document.querySelectorAll('form').forEach(form => {
+      form.addEventListener('submit', function() {
+        logAdminActivity(`Updated ${this.id}`);
+      });
+    });
+
+    // Session timeout simulation
+    let sessionTimeout;
+    function resetSessionTimeout() {
+      clearTimeout(sessionTimeout);
+      sessionTimeout = setTimeout(() => {
+        alert('Your session has expired. Please log in again.');
+        window.location.href = '/admin/logout';
+      }, 30 * 60 * 1000); // 30 minutes
+    }
+
+    // Reset timeout on user activity
+    document.addEventListener('click', resetSessionTimeout);
+    document.addEventListener('keypress', resetSessionTimeout);
+
+    // Initial call to start the timeout
+    resetSessionTimeout();
+  </script>
+</body>
+</html>

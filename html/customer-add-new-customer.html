@@ -1,0 +1,103 @@
+<!-- <html><head><base href="https://barbshoestore.com/admin/#customers/add%20customer/written/"> -->
+
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../css/add-new-product.css">
+    
+  <title> Add New Customer</title>
+
+</head>
+<body>
+  <div class="admin-container">
+    <aside class="sidebar">
+      <h2>ADMIN PANEL</h2>
+      <nav>
+        <ul>
+          <li><a href="../html/admin-dashboard.html">Dashboard</a></li>
+          <li><a href="../html/admin-inventory.html">Inventory</a></li>
+          <li><a href="../html/admin-order-management.html">Orders</a></li>
+          <li><a href="../html/admin-customer-management.html" class="active">Customers</a></li>
+          <li><a href="#analytics">Analytics</a></li>
+          <li><a href="#settings">Settings</a></li>
+        </ul>
+      </nav>
+    </aside>
+    
+    <main class="main-content">
+      <header class="page-header">
+        <h1>ADD NEW CUSTOMER</h1>
+        <div class="user-info">
+          <div class="user-avatar">B</div>
+          <button class="logout-btn">LOGOUT</button>
+        </div>
+      </header>
+      
+      <form class="add-customer-form" id="addCustomerForm">
+        <div class="form-group">
+          <label for="firstName">First Name:</label>
+          <input type="text" id="firstName" name="firstName" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="lastName">Last Name:</label>
+          <input type="text" id="lastName" name="lastName" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="phone">Phone:</label>
+          <input type="tel" id="phone" name="phone" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="address">Address:</label>
+          <textarea id="address" name="address" required></textarea>
+        </div>
+        
+        <div class="form-group">
+          <label for="birthDate">Birth Date:</label>
+          <input type="date" id="birthDate" name="birthDate">
+        </div>
+        
+        <div class="form-group">
+          <label for="preferredContact">Preferred Contact Method:</label>
+          <select id="preferredContact" name="preferredContact">
+            <option value="email">Email</option>
+            <option value="phone">Phone</option>
+            <option value="sms">SMS</option>
+          </select>
+        </div>
+        
+        <div class="form-group">
+          <label for="shoeSize">Shoe Size:</label>
+          <input type="number" id="shoeSize" name="shoeSize" step="0.5" min="1" max="20">
+        </div>
+        
+        <div class="form-group">
+          <label for="preferences">Shoe Preferences:</label>
+          <textarea id="preferences" name="preferences" placeholder="e.g., favorite brands, styles, colors"></textarea>
+        </div>
+        
+        <div class="form-group">
+          <label for="newsletter">Subscribe to Newsletter:</label>
+          <input type="checkbox" id="newsletter" name="newsletter" value="yes">
+        </div>
+        
+        <button type="submit" class="submit-btn">Add Customer</button>
+      </form>
+    </main>
+  </div>
+
+  <script src="../javascript/customer-add-new-customer.js">
+    
+  </script>
+</body>
+</html>

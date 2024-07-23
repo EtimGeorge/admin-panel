@@ -1,0 +1,93 @@
+<!-- <html><head><base href="https://store.com/admin/#customers/delete%20customer/written"> -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/customer-delete-customer.css">
+  
+    <title> Delete Customer</title>
+
+  </head>
+<body>
+  <div class="admin-container">
+    <aside class="sidebar">
+      <h2>ADMIN PANEL</h2>
+      <nav>
+        <ul>
+          <li><a href="../html/admin-dashboard.html">Dashboard</a></li>
+          <li><a href="../html/admin-inventory.html">Inventory</a></li>
+          <li><a href="../html/admin-order-management.html">Orders</a></li>
+          <li><a href="../html/admin-customer-management.html" class="active">Customers</a></li>
+          <li><a href="../html/admin-analytics-dashboard.html">Analytics</a></li>
+          <li><a href="../html/admin-enhanced-settings.html">Settings</a></li>
+        </ul>
+      </nav>
+    </aside>
+    
+    <main class="main-content">
+      <header class="page-header">
+        <h1>DELETE CUSTOMER</h1>
+        <div class="user-info">
+          <div class="user-avatar">B</div>
+          <button class="logout-btn">LOGOUT</button>
+        </div>
+      </header>
+      
+      <div class="delete-container">
+        <form class="delete-form" id="deleteCustomerForm">
+          <div class="form-group">
+            <label for="customerSelect">Select Customer:</label>
+            <select id="customerSelect" required>
+              <option value="">--Select a customer--</option>
+              <option value="1">Alice Johnson (ID: 1)</option>
+              <option value="2">Bob Smith (ID: 2)</option>
+              <option value="3">Carol Davis (ID: 3)</option>
+              <option value="4">David Brown (ID: 4)</option>
+              <option value="5">Eve Wilson (ID: 5)</option>
+            </select>
+          </div>
+          
+          <div class="customer-info" id="customerInfo" style="display: none;">
+            <h3>Customer Details:</h3>
+            <p id="customerName"></p>
+            <p id="customerEmail"></p>
+            <p id="customerPhone"></p>
+            <p id="customerOrders"></p>
+            <p id="customerSpent"></p>
+          </div>
+          
+          <div class="form-group">
+            <label for="deleteReason">Reason for Deletion:</label>
+            <select id="deleteReason" required>
+              <option value="">--Select a reason--</option>
+              <option value="customer_request">Customer Request</option>
+              <option value="data_privacy">Data Privacy Compliance</option>
+              <option value="account_inactive">Account Inactive</option>
+              <option value="duplicate_account">Duplicate Account</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          
+          <div class="form-group" id="otherReasonGroup" style="display: none;">
+            <label for="otherReason">Specify Other Reason:</label>
+            <input type="text" id="otherReason" placeholder="Enter reason">
+          </div>
+          
+          <div class="confirmation-checkbox">
+            <input type="checkbox" id="confirmDelete" required>
+            <label for="confirmDelete">I confirm that I want to permanently delete this customer's data</label>
+          </div>
+          
+          <button type="submit" class="delete-btn">DELETE CUSTOMER</button>
+        </form>
+        
+        <p class="warning-text">Warning: This action cannot be undone. All customer data will be permanently removed from the system.</p>
+      </div>
+    </main>
+  </div>
+
+  <script src="../javascript/customer-delete-customer.js"></script>
+</body>
+</html>

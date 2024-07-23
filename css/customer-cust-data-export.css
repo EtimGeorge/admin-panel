@@ -1,0 +1,262 @@
+:root {
+  --primary-color: #00FFFF;
+  --secondary-color: #FF00FF;
+  --background-color: #0D0D0D;
+  --card-background: #1A1A1A;
+  --text-color: #FFFFFF;
+  --text-light: #CCCCCC;
+  --shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  --accent-color: #FFD700;
+  --success-color: #00FF00;
+  --warning-color: #FF4500;
+  --error-color: #FF0000;
+}
+
+body {
+  font-family: 'Courier New', monospace;
+  margin: 0;
+  padding: 0;
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+.admin-container {
+  display: flex;
+  min-height: 100vh;
+}
+
+.sidebar {
+  width: 250px;
+  background-color: var(--card-background);
+  padding: 2em 1em;
+  border-right: 1px solid var(--primary-color);
+}
+
+.sidebar h2 {
+  color: var(--primary-color);
+  margin-bottom: 1em;
+  text-align: center;
+}
+
+.sidebar ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.sidebar ul li {
+  margin-bottom: 0.5em;
+}
+
+.sidebar ul li a {
+  color: var(--text-color);
+  text-decoration: none;
+  display: block;
+  padding: 0.5em 1em;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.sidebar ul li a:hover, .sidebar ul li a.active {
+  background-color: var(--primary-color);
+  color: var(--background-color);
+}
+
+.main-content {
+  flex: 1;
+  padding: 2em;
+  overflow-y: auto;
+}
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2em;
+  border-bottom: 1px solid var(--primary-color);
+  padding-bottom: 1em;
+}
+
+.page-header h1 {
+  color: var(--primary-color);
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+}
+
+.user-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--accent-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 1em;
+}
+
+.logout-btn {
+  background-color: var(--warning-color);
+  color: var(--text-color);
+  border: none;
+  padding: 0.5em 1em;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.logout-btn:hover {
+  background-color: var(--accent-color);
+}
+
+.export-options {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2em;
+  margin-top: 2em;
+}
+
+.export-card {
+  background-color: var(--card-background);
+  border: 2px solid var(--primary-color);
+  border-radius: 8px;
+  padding: 1.5em;
+  transition: all 0.3s ease;
+}
+
+.export-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow);
+}
+
+.export-card h3 {
+  color: var(--primary-color);
+  margin-top: 0;
+}
+
+.export-btn {
+  background-color: var(--primary-color);
+  color: var(--background-color);
+  border: none;
+  padding: 0.5em 1em;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 1em;
+  font-family: 'Courier New', monospace;
+  font-weight: bold;
+}
+
+.export-btn:hover {
+  background-color: var(--accent-color);
+}
+
+.export-progress {
+  width: 100%;
+  height: 20px;
+  background-color: var(--card-background);
+  border-radius: 10px;
+  overflow: hidden;
+  margin-top: 1em;
+}
+
+.progress-bar {
+  width: 0%;
+  height: 100%;
+  background-color: var(--primary-color);
+  transition: width 0.5s ease;
+}
+
+@keyframes dataFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+.data-flow {
+  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color), var(--accent-color));
+  background-size: 200% 100%;
+  animation: dataFlow 5s linear infinite;
+  height: 2px;
+  width: 100%;
+  margin-top: 2em;
+}
+
+.data-source, .customer-selection {
+  background-color: var(--card-background);
+  border: 2px solid var(--accent-color);
+  border-radius: 8px;
+  padding: 1.5em;
+  margin-top: 2em;
+}
+
+.data-source h3, .customer-selection h3 {
+  color: var(--accent-color);
+  margin-top: 0;
+}
+
+.data-source p, .customer-selection p {
+  margin-bottom: 1em;
+}
+
+.data-source select, .customer-selection select {
+  width: 100%;
+  padding: 0.5em;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  border: 1px solid var(--primary-color);
+  border-radius: 4px;
+  font-family: 'Courier New', monospace;
+}
+
+.customer-list {
+  max-height: 200px;
+  overflow-y: auto;
+  border: 1px solid var(--primary-color);
+  border-radius: 4px;
+  padding: 0.5em;
+  margin-top: 1em;
+}
+
+.customer-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5em;
+}
+
+.customer-item input[type="checkbox"] {
+  margin-right: 1em;
+}
+
+.select-all {
+  margin-top: 1em;
+}
+
+.preview-container {
+  background-color: var(--card-background);
+  border: 2px solid var(--accent-color);
+  border-radius: 8px;
+  padding: 1.5em;
+  margin-top: 2em;
+}
+
+.preview-container h3 {
+  color: var(--accent-color);
+  margin-top: 0;
+}
+
+.preview-content {
+  background-color: var(--background-color);
+  border: 1px solid var(--primary-color);
+  border-radius: 4px;
+  padding: 1em;
+  max-height: 300px;
+  overflow-y: auto;
+  font-family: 'Courier New', monospace;
+  font-size: 0.9em;
+  white-space: pre-wrap;
+}

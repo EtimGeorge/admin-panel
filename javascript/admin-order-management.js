@@ -29,16 +29,48 @@ function logAdminActivity(activity) {
   // In a real implementation, this would send logs to a secure server
 }
 
+document.addEventListener('DOMContentLoaded', function() {
+  // Log page load
+  logAdminActivity('Accessed  order manage');
+
+  // Select all links in the sidebar
+  const sidebarLinks = document.querySelectorAll('.sidebar a');
+  
+  // Add event listeners to each sidebar link
+  sidebarLinks.forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault(); // Prevent immediate navigation
+      
+      logAdminActivity('Clicked: ' + this.textContent);
+      
+      // Prompt the user for confirmation
+      const confirmNavigation = confirm('Are you sure you want to navigate to ' + this.textContent + '?');
+      
+      if (confirmNavigation) {
+        // If user confirms, navigate to the link's target
+        window.location.href = this.href;
+      } else {
+        // If user cancels, explicitly do nothing (stay on the current page)
+        console.log('Navigation cancelled by user');
+      }
+    });
+  });
+
+  console.log(`Added event listeners to ${sidebarLinks.length} sidebar links`);
+});
+
 // Log page load
-logAdminActivity('Accessed order management');
+// logAdminActivity('Accessed order management');
+
+
 
 // Log navigation clicks
-document.querySelectorAll('.sidebar a').forEach(link => {
-  link.addEventListener('click', function(e) {
-    e.preventDefault(); // Prevent actual navigation for this demo
-    logAdminActivity('Clicked: ' + this.textContent);
-  });
-});
+// document.querySelectorAll('.sidebar a').forEach(link => {
+//   link.addEventListener('click', function(e) {
+//     e.preventDefault(); // Prevent actual navigation for this demo
+//     logAdminActivity('Clicked: ' + this.textContent);
+//   });
+// });
 
 // Session timeout simulation
 let sessionTimeout;

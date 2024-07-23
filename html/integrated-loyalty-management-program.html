@@ -1,0 +1,58 @@
+<!-- <html><head><base href="https://store.com/admin/#customers/loyalty%20program/written/keep%20the%20same,%20but%20how%20can%20this%20page%20interface%20with%20the%20client%20side,%20to%20showcase%20the%20program%20to%20new%20and%20existing%20customers?/make%20it%20more%20modern%20and%20the%20action%20button%20more%20exciting/connect%20to%20the%20loyalty%20program%20on%20the%20admin/#customer/loyalty%20program"> -->
+  
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="../css/integrated-loyalty-management-program.css">
+ 
+  <title>Integrated Loyalty Program Management</title>
+<style>
+ 
+</style>
+</head>
+<body>
+  <div class="admin-container">
+    <aside class="sidebar">
+      <!-- Sidebar content (unchanged) -->
+    </aside>
+    
+    <main class="main-content">
+      <h1>Integrated Loyalty Program Management</h1>
+      
+      <div class="program-management">
+        <section class="program-config card">
+          <h2>Program Configuration</h2>
+          <form id="loyaltyProgramForm" class="config-form">
+            <label for="programName">Program Name:</label>
+            <input type="text" id="programName" value="Shoe Lovers Club" required>
+            
+            <label for="pointsPerDollar">Points per Dollar:</label>
+            <input type="number" id="pointsPerDollar" value="10" min="1" required>
+            
+            <h3>Loyalty Tiers</h3>
+            <div id="tierConfigs">
+              <!-- Tier configurations will be dynamically added here -->
+            </div>
+            
+            <button type="button" class="add-tier-btn" onclick="addTierConfig()">Add Tier</button>
+            
+            <button type="submit">Update Loyalty Program</button>
+          </form>
+        </section>
+        
+        <section class="client-preview card">
+          <h2>Client-Side Preview</h2>
+          <div id="clientPreview">
+            <!-- Client-side preview will be dynamically updated here -->
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <script src="../javascript/integrated-loyalty-management-program.js"></script>
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!-- <html><head><base href="https://barbshoestore.com/admin/#customers/written/%20write%20the%20action%20buttons/add%20view%20customer%20and%20a%20search%20bar%20for%20customers%20display%20the%20customers%20and%20their%20details/%20i%20wanted%20you%20to%20keep%20the%20previous%20layout"> -->
+  
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../css/admin-customer-management.css">
+    
+  <title> Customer Management</title>
+<style>
+ 
+</style>
+</head>
+<body>
+  <div class="admin-container">
+    <aside class="sidebar">
+      <h2>ADMIN PANEL</h2>
+      <nav>
+        <ul>
+          <li><a href="../html/admin-dashboard.html">Dashboard</a></li>
+          <li><a href="../html/admin-inventory.html">Inventory</a></li>
+          <li><a href="../html/admin-order-management.html">Orders</a></li>
+          <li><a href="../html/admin-customer-management.html" class="active">Customers</a></li>
+          <li><a href="#analytics">Analytics</a></li>
+          <li><a href="#settings">Settings</a></li>
+        </ul>
+      </nav>
+    </aside>
+    
+    <main class="main-content">
+      <header class="page-header">
+        <h1>CUSTOMER MANAGEMENT</h1>
+        <div class="user-info">
+          <div class="user-avatar">B</div>
+          <button class="logout-btn">LOGOUT</button>
+        </div>
+      </header>
+      
+      <div class="action-buttons">
+        
+          <button class="action-btn" id="addCustomer">
+            <i>➕</i>
+            <a href="../html/customer-add-new-customer.html">ADD CUSTOMER</a>
+          </button>
+        
+        <button class="action-btn" id="viewCustomer">
+          <i>👁️</i>
+          <a href="../html/customer-view-customer.html">VIEW CUSTOMER</a>
+        </button>
+        <button class="action-btn" id="editCustomer">
+          <i>✏️</i>
+          <a href="../html/customer-edit-customer.html">EDIT CUSTOMER</a>
+        </button>
+        <button class="action-btn" id="deleteCustomer">
+          <i>🗑️</i>
+          <a href="../html/customer-delete-customer.html">DELETE CUSTOMER</a>
+        </button>
+        <button class="action-btn" id="exportCustomers">
+          <i>📤</i>
+          <a href="../html/customer-cust-data-export.html">EXPORT DATA</a>
+        </button>
+        <button class="action-btn" id="importCustomers">
+          <i>📥</i>
+          <a href="../html/customer-import-customer-data.html">IMPORT DATA</a>
+        </button>
+        <button class="action-btn" id="sendNewsletter">
+          <i>📧</i>
+          <a href="../html/customer-send-newsletter.html">SEND NEWSLETTER</a>
+        </button>
+        <button class="action-btn" id="customerSegmentation">
+          <i>🎯</i>
+          <a href="../html/admin-customer-segmentation.html">SEGMENTATION</a>
+        </button>
+        <button class="action-btn" id="loyaltyProgram">
+          <i>🏆</i>
+          <a href="../html/integrated-loyalty-management-program.html">LOYALTY PROGRAM</a>
+        </button>
+      </div>
+      
+      <div class="search-bar">
+        <input type="text" id="customerSearch" placeholder="Search customers...">
+      </div>
+      
+      <table class="customer-table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Total Orders</th>
+            <th>Total Spent</th>
+            <th>Last Order Date</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="customerTableBody">
+          <!-- Customer data will be dynamically inserted here -->
+        </tbody>
+      </table>
+    </main>
+  </div>
+
+  <!-- Modal -->
+  <div id="customerModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2 id="modalTitle"></h2>
+      <div id="modalContent"></div>
+    </div>
+  </div>
+
+  <script src="../javascript/admin-customer-management.js">
+  </script>
+</body>
+</html>

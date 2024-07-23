@@ -1,0 +1,90 @@
+<!-- <html><head><base href="https:// -->
+
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="../css/admin-customer-segmentation.css">
+  
+  <title>Customer Segmentation</title>
+<style>
+ 
+</style>
+</head>
+<body>
+  <div class="admin-container">
+    <aside class="sidebar">
+      <h2>ADMIN PANEL</h2>
+      <nav>
+        <ul>
+          <li><a href="../html/admin-dashboard.html">Dashboard</a></li>
+          <li><a href="../html/admin-inventory.html">Inventory</a></li>
+          <li><a href="../html/admin-order-management.html">Orders</a></li>
+          <li><a href="../html/admin-customer-management.html">Customers</a></li>
+          <li><a href="../html/admin-customer-segmentation.html" class="active">Segmentation</a></li>
+          <li><a href="../html/admin-analytics-dashboard.html">Analytics</a></li>
+          <li><a href="../html/admin-enhanced-settings.html">Settings</a></li>
+        </ul>
+      </nav>
+    </aside>
+    
+    <main class="main-content">
+      <header class="page-header">
+        <h1>CUSTOMER SEGMENTATION</h1>
+        <div class="user-info">
+          <div class="user-avatar">B</div>
+          <button class="logout-btn">LOGOUT</button>
+        </div>
+      </header>
+      
+      <div class="segmentation-grid">
+        <div class="segmentation-card">
+          <h3>Purchase History</h3>
+          <p>Segment customers based on their buying patterns and frequency.</p>
+          <button onclick="showSegmentationModal('purchases')">Group Customers</button>
+        </div>
+        <div class="segmentation-card">
+          <h3>Location</h3>
+          <p>Group customers by their geographical location for targeted marketing.</p>
+          <button onclick="showSegmentationModal('location')">Group Customers</button>
+        </div>
+        <div class="segmentation-card">
+          <h3>Age Group</h3>
+          <p>Categorize customers into different age brackets for tailored promotions.</p>
+          <button onclick="showSegmentationModal('age')">Group Customers</button>
+        </div>
+        <div class="segmentation-card">
+          <h3>Shoe Preferences</h3>
+          <p>Segment customers based on their preferred shoe types and styles.</p>
+          <button onclick="showSegmentationModal('preferences')">Group Customers</button>
+        </div>
+        <div class="segmentation-card">
+          <h3>Customer Lifetime Value</h3>
+          <p>Group customers based on their total value to the business over time.</p>
+          <button onclick="showSegmentationModal('lifetime_value')">Group Customers</button>
+        </div>
+        <div class="segmentation-card">
+          <h3>Engagement Level</h3>
+          <p>Segment customers based on their interaction with marketing campaigns.</p>
+          <button onclick="showSegmentationModal('engagement')">Group Customers</button>
+        </div>
+      </div>
+      
+      <div id="segmentationChart"></div>
+      <div id="customerTable"></div>
+    </main>
+  </div>
+
+  <!-- Modal -->
+  <div id="segmentationModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2 id="modalTitle"></h2>
+      <div id="modalContent"></div>
+    </div>
+  </div>
+
+  <script src="../javascript/admin-customer-segmentation.js"></script>
+</body>
+</html>

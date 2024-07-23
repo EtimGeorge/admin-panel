@@ -1,0 +1,140 @@
+<!-- <html><head><base href="https://"> -->
+ 
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <link rel="stylesheet" href="../css/customer-send-newsletter.css">
+
+  <title> Send Newsletter</title>
+
+</head>
+<body>
+  <div class="admin-container">
+    <aside class="sidebar">
+      <h2>ADMIN PANEL</h2>
+      <nav>
+        <ul>
+          <li><a href="../html/admin-dashboard.html">Dashboard</a></li>
+          <li><a href="../html/admin-inventory.html">Inventory</a></li>
+          <li><a href="../html/admin-order-management.html">Orders</a></li>
+          <li><a href="../html/admin-customer-management.html" class="active">Customers</a></li>
+          <li><a href="../html/admin-analytics-dashboard.html">Analytics</a></li>
+          <li><a href="../html/admin-enhanced-settings.html">Settings</a></li>
+        </ul>
+      </nav>
+    </aside>
+    
+    <main class="main-content">
+      <header class="page-header">
+        <h1>SEND NEWSLETTER</h1>
+        <div class="user-info">
+          <div class="user-avatar">B</div>
+          <button class="logout-btn">LOGOUT</button>
+        </div>
+      </header>
+      
+      <form class="newsletter-form" id="newsletterForm">
+        <div class="form-group">
+          <label for="subject">Subject:</label>
+          <input type="text" id="subject" name="subject" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="recipient-group">Recipient Group:</label>
+          <select id="recipient-group" name="recipient-group" required>
+            <option value="">Select a group</option>
+            <option value="all">All Customers</option>
+            <option value="vip">VIP Customers</option>
+            <option value="new">New Customers (Last 30 days)</option>
+            <option value="inactive">Inactive Customers (No purchase in 6 months)</option>
+          </select>
+        </div>
+        
+        <div class="form-group">
+          <label for="content">Newsletter Content:</label>
+          <textarea id="content" name="content" required></textarea>
+        </div>
+        
+        <div class="form-group">
+          <label for="attachments">Attachments:</label>
+          <input type="file" id="attachments" name="attachments" multiple>
+        </div>
+        
+        <div class="button-group">
+          <button type="button" class="preview-btn" id="previewBtn">Preview</button>
+          <button type="button" class="use-template-btn" id="useTemplateBtn">Use Template</button>
+          <button type="button" class="add-template-btn" id="addTemplateBtn">Add Template</button>
+          <button type="button" class="edit-templates-btn" id="editTemplatesBtn">Edit Templates</button>
+          <button type="button" class="save-draft-btn" id="saveDraftBtn">Save Draft</button>
+          <button type="button" class="view-drafts-btn" id="viewDraftsBtn">View Drafts</button>
+          <button type="submit" class="send-btn">Send Newsletter</button>
+        </div>
+      </form>
+    </main>
+  </div>
+
+  <!-- Preview Modal -->
+  <div id="previewModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Newsletter Preview</h2>
+      <div id="previewContent"></div>
+    </div>
+  </div>
+
+  <!-- Template Modal -->
+  <div id="templateModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Choose a Template</h2>
+      <div id="templateList"></div>
+    </div>
+  </div>
+
+  <!-- Add Template Modal -->
+  <div id="addTemplateModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Add New Template</h2>
+      <form id="addTemplateForm">
+        <div class="form-group">
+          <label for="templateName">Template Name:</label>
+          <input type="text" id="templateName" required>
+        </div>
+        <div class="form-group">
+          <label for="templateSubject">Subject:</label>
+          <input type="text" id="templateSubject" required>
+        </div>
+        <div class="form-group">
+          <label for="templateContent">Content:</label>
+          <textarea id="templateContent" required></textarea>
+        </div>
+        <button type="submit">Save Template</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Edit Templates Modal -->
+  <div id="editTemplatesModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Edit Templates</h2>
+      <div id="editTemplatesList"></div>
+    </div>
+  </div>
+
+  <!-- Drafts Modal -->
+  <div id="draftsModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Saved Drafts</h2>
+      <div id="draftsList"></div>
+    </div>
+  </div>
+
+  <script src="../javascript/customer-send-newsletter.js"></script>
+</body>
+</html>

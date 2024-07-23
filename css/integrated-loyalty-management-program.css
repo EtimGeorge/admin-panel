@@ -1,0 +1,128 @@
+:root {
+  --primary-color: #00FFFF;
+  --secondary-color: #FF00FF;
+  --background-color: #0D0D0D;
+  --card-background: #1A1A1A;
+  --text-color: #FFFFFF;
+  --text-light: #CCCCCC;
+  --accent-color: #FFD700;
+  --success-color: #00FF00;
+  --warning-color: #FF4500;
+  --error-color: #FF0000;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+.admin-container {
+  display: flex;
+  min-height: 100vh;
+}
+
+.sidebar {
+  width: 250px;
+  background-color: var(--card-background);
+  padding: 2em 1em;
+  border-right: 1px solid var(--primary-color);
+}
+
+.main-content {
+  flex: 1;
+  padding: 2em;
+  overflow-y: auto;
+}
+
+.card {
+  background-color: var(--card-background);
+  border-radius: 12px;
+  padding: 1.5em;
+  margin-bottom: 2em;
+  box-shadow: 0 8px 32px rgba(0, 255, 255, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 48px rgba(0, 255, 255, 0.2);
+}
+
+/* ... (previous styles remain unchanged) ... */
+
+.program-management {
+  display: flex;
+  gap: 2em;
+}
+
+.program-config {
+  flex: 1;
+}
+
+.client-preview {
+  flex: 1;
+}
+
+.config-form label {
+  display: block;
+  margin-bottom: 0.5em;
+  color: var(--accent-color);
+}
+
+.config-form input,
+.config-form select {
+  width: 100%;
+  padding: 0.5em;
+  margin-bottom: 1em;
+  background-color: var(--card-background);
+  border: 1px solid var(--primary-color);
+  color: var(--text-color);
+  border-radius: 4px;
+}
+
+.config-form button {
+  background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+  color: var(--background-color);
+  border: none;
+  padding: 0.75em 1.5em;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.config-form button:hover {
+  box-shadow: 0 0 20px var(--accent-color);
+  transform: translateY(-2px);
+}
+
+.tier-config {
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  padding: 1em;
+  margin-bottom: 1em;
+}
+
+.add-tier-btn {
+  background-color: var(--success-color);
+  color: var(--background-color);
+  border: none;
+  padding: 0.5em 1em;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-bottom: 1em;
+}
+
+.remove-tier-btn {
+  background-color: var(--error-color);
+  color: var(--text-color);
+  border: none;
+  padding: 0.25em 0.5em;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-left: 1em;
+}

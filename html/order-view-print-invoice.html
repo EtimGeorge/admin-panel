@@ -1,136 +1,14 @@
-<html><head><base href="https://barbshoestore.com/admin/#orders/view/print%20invoice/written"><title>Barb's Shoe Store - Print Invoice (Written)</title>
-<style>
-  :root {
-    --primary-color: #00FFFF;
-    --secondary-color: #FF00FF;
-    --background-color: #0D0D0D;
-    --card-background: #1A1A1A;
-    --text-color: #FFFFFF;
-    --text-light: #CCCCCC;
-    --shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-    --accent-color: #FFD700;
-  }
+<!-- <html><head><base href="https://barbshoestore.com/admin/#orders/view/print%20invoice/written"> -->
   
-  body {
-    font-family: 'Courier New', monospace;
-    margin: 0;
-    padding: 0;
-    background-color: var(--background-color);
-    color: var(--text-color);
-  }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  .invoice-container {
-    max-width: 800px;
-    margin: 2em auto;
-    background-color: var(--card-background);
-    padding: 2em;
-    box-shadow: var(--shadow);
-  }
-  
-  .invoice-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin-bottom: 2em;
-    border-bottom: 2px solid var(--primary-color);
-    padding-bottom: 1em;
-  }
-  
-  .store-info h1 {
-    color: var(--primary-color);
-    margin: 0;
-  }
-  
-  .store-info p {
-    margin: 0.5em 0;
-  }
-  
-  .invoice-details {
-    text-align: right;
-  }
-  
-  .invoice-details h2 {
-    color: var(--secondary-color);
-    margin: 0;
-  }
-  
-  .customer-info, .order-info {
-    margin-bottom: 2em;
-  }
-  
-  .info-grid {
-    display: grid;
-    grid-template-columns: auto 1fr;
-    gap: 0.5em;
-  }
-  
-  .info-label {
-    font-weight: bold;
-    color: var(--secondary-color);
-  }
-  
-  .order-items {
-    margin-bottom: 2em;
-  }
-  
-  .order-items table {
-    width: 100%;
-    border-collapse: collapse;
-  }
-  
-  .order-items th, .order-items td {
-    border: 1px solid var(--text-light);
-    padding: 0.5em;
-    text-align: left;
-  }
-  
-  .order-items th {
-    background-color: var(--secondary-color);
-    color: var(--text-color);
-  }
-  
-  .order-total {
-    text-align: right;
-    font-size: 1.2em;
-    font-weight: bold;
-    color: var(--accent-color);
-  }
-  
-  .invoice-footer {
-    margin-top: 2em;
-    text-align: center;
-    font-size: 0.9em;
-    color: var(--text-light);
-  }
-  
-  @media print {
-    body {
-      background-color: white;
-      color: black;
-    }
-    
-    .invoice-container {
-      box-shadow: none;
-    }
-    
-    .store-info h1, .invoice-details h2 {
-      color: black;
-    }
-    
-    .info-label {
-      color: #333;
-    }
-    
-    .order-items th {
-      background-color: #eee;
-      color: black;
-    }
-    
-    .order-total {
-      color: black;
-    }
-  }
-</style>
+  <link rel="stylesheet" href="../css/order-view-print-invoice.css">
+  <title>Print Invoice </title>
+
 </head>
 <body>
   <div class="invoice-container">
@@ -216,25 +94,6 @@
     </footer>
   </div>
 
-  <script>
-    // Print the invoice automatically when the page loads
-    window.onload = function() {
-      window.print();
-    }
-
-    // Activity logging
-    function logAdminActivity(activity) {
-      console.log('Admin activity:', activity);
-      // In a real implementation, this would send logs to a secure server
-    }
-
-    // Log invoice generation
-    logAdminActivity('Generated invoice for order #12346');
-
-    // Prevent accidental navigation away from the page
-    window.onbeforeunload = function() {
-      return "Are you sure you want to leave this page? The invoice may not be printed if you continue.";
-    }
-  </script>
+  <script src="../javascript/order-view-print-invoice.js"></script>
 </body>
 </html>

@@ -1,0 +1,357 @@
+<html><head><base href="https://barbshoestore.com/admin/#customers/message/written"><title>Barb's Show Stor - Customer Messaging</title>
+<style>
+  :root {
+    --primary-color: #00FFFF;
+    --secondary-color: #FF00FF;
+    --background-color: #0D0D0D;
+    --card-background: #1A1A1A;
+    --text-color: #FFFFFF;
+    --text-light: #CCCCCC;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    --accent-color: #FFD700;
+    --success-color: #00FF00;
+    --warning-color: #FF4500;
+  }
+  
+  body {
+    font-family: 'Courier New', monospace;
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-color);
+    color: var(--text-color);
+  }
+  
+  .admin-container {
+    display: flex;
+    min-height: 100vh;
+  }
+  
+  .sidebar {
+    width: 250px;
+    background-color: var(--card-background);
+    padding: 2em 1em;
+    border-right: 1px solid var(--primary-color);
+  }
+  
+  .sidebar h2 {
+    color: var(--primary-color);
+    margin-bottom: 1em;
+    text-align: center;
+  }
+  
+  .sidebar ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .sidebar ul li {
+    margin-bottom: 0.5em;
+  }
+  
+  .sidebar ul li a {
+    color: var(--text-color);
+    text-decoration: none;
+    display: block;
+    padding: 0.5em 1em;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .sidebar ul li a:hover, .sidebar ul li a.active {
+    background-color: var(--primary-color);
+    color: var(--background-color);
+  }
+  
+  .main-content {
+    flex: 1;
+    padding: 2em;
+    overflow-y: auto;
+  }
+  
+  .page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2em;
+    border-bottom: 1px solid var(--primary-color);
+    padding-bottom: 1em;
+  }
+  
+  .page-header h1 {
+    color: var(--primary-color);
+  }
+  
+  .user-info {
+    display: flex;
+    align-items: center;
+  }
+  
+  .user-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--accent-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 1em;
+  }
+  
+  .logout-btn {
+    background-color: var(--warning-color);
+    color: var(--text-color);
+    border: none;
+    padding: 0.5em 1em;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .logout-btn:hover {
+    background-color: var(--accent-color);
+  }
+  
+  .message-form {
+    background-color: var(--card-background);
+    padding: 2em;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+  }
+  
+  .form-group {
+    margin-bottom: 1.5em;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 0.5em;
+    color: var(--primary-color);
+  }
+  
+  .form-group input, .form-group select, .form-group textarea {
+    width: 100%;
+    padding: 0.5em;
+    border-radius: 4px;
+    border: 1px solid var(--text-light);
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-family: 'Courier New', monospace;
+  }
+  
+  .form-group textarea {
+    min-height: 150px;
+    resize: vertical;
+  }
+  
+  .submit-btn {
+    background-color: var(--accent-color);
+    color: var(--background-color);
+    border: none;
+    padding: 0.5em 1em;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+  }
+  
+  .submit-btn:hover {
+    background-color: var(--primary-color);
+  }
+  
+  .message-preview {
+    margin-top: 2em;
+    background-color: var(--card-background);
+    padding: 1em;
+    border-radius: 8px;
+    border: 1px solid var(--primary-color);
+  }
+  
+  .message-preview h3 {
+    color: var(--primary-color);
+    margin-top: 0;
+  }
+  
+  .preview-content {
+    white-space: pre-wrap;
+    font-family: 'Courier New', monospace;
+  }
+</style>
+</head>
+<body>
+  <div class="admin-container">
+    <aside class="sidebar">
+      <h2>ADMIN PANEL</h2>
+      <nav>
+        <ul>
+          <li><a href="#dashboard">Dashboard</a></li>
+          <li><a href="#inventory">Inventory</a></li>
+          <li><a href="#orders">Orders</a></li>
+          <li><a href="#customers" class="active">Customers</a></li>
+          <li><a href="#analytics">Analytics</a></li>
+          <li><a href="#settings">Settings</a></li>
+        </ul>
+      </nav>
+    </aside>
+    
+    <main class="main-content">
+      <header class="page-header">
+        <h1>CUSTOMER MESSAGING</h1>
+        <div class="user-info">
+          <div class="user-avatar">B</div>
+          <button class="logout-btn">LOGOUT</button>
+        </div>
+      </header>
+      
+      <form class="message-form" id="customerMessageForm">
+        <div class="form-group">
+          <label for="recipient">RECIPIENT:</label>
+          <select id="recipient" required>
+            <option value="">Select recipient</option>
+            <option value="all">All Customers</option>
+            <option value="new">New Customers (Last 30 days)</option>
+            <option value="loyal">Loyal Customers (5+ orders)</option>
+            <option value="inactive">Inactive Customers (No orders in 6 months)</option>
+          </select>
+        </div>
+        
+        <div class="form-group">
+          <label for="subject">SUBJECT:</label>
+          <input type="text" id="subject" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="message">MESSAGE:</label>
+          <textarea id="message" required></textarea>
+        </div>
+        
+        <div class="form-group">
+          <label for="template">TEMPLATE:</label>
+          <select id="template">
+            <option value="">Select a template</option>
+            <option value="newproduct">New Product Announcement</option>
+            <option value="sale">Sale Notification</option>
+            <option value="thankyou">Customer Appreciation</option>
+            <option value="feedback">Feedback Request</option>
+          </select>
+        </div>
+        
+        <button type="submit" class="submit-btn">SEND MESSAGE</button>
+      </form>
+      
+      <div class="message-preview">
+        <h3>MESSAGE PREVIEW:</h3>
+        <pre class="preview-content" id="messagePreview"></pre>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    const form = document.getElementById('customerMessageForm');
+    const preview = document.getElementById('messagePreview');
+    const templateSelect = document.getElementById('template');
+    const subjectInput = document.getElementById('subject');
+    const messageInput = document.getElementById('message');
+
+    const templates = {
+      newproduct: {
+        subject: "Introducing Our Latest Shoes - Step Into Style!",
+        message: "Dear valued customer,\n\nWe're excited to announce our newest addition to the Barb's Show Stor family!\nOur [NEW PRODUCT NAME] combines comfort and style like never before.\nBe among the first to experience this revolutionary footwear.\n\nVisit our store or website to get your pair today!\n\nBest regards,\nThe Barb's Show Stor Team"
+      },
+      sale: {
+        subject: "Flash Sale Alert - 48 Hours of Unbeatable Deals!",
+        message: "Hello shoe lover,\n\nDon't miss out on our biggest sale of the season!\nFor the next 48 hours, enjoy up to 50% off on selected styles.\nWhether you're looking for comfort, style, or both, we've got you covered.\n\nShop now before your favorites are gone!\n\nHappy shopping,\nBarb's Show Stor"
+      },
+      thankyou: {
+        subject: "A Heartfelt Thank You from Barb's Show Stor",
+        message: "Dear cherished customer,\n\nWe wanted to take a moment to express our sincere gratitude for your continued support.\nCustomers like you are the reason we strive to provide the best shoes and service.\n\nAs a token of our appreciation, please enjoy a 15% discount on your next purchase.\nUse code: THANKYOU15 at checkout.\n\nWith gratitude,\nThe entire Barb's Show Stor family"
+      },
+      feedback: {
+        subject: "We Value Your Opinion - Short Survey Inside",
+        message: "Hello,\n\nYour experience at Barb's Show Stor matters to us, and we want to hear from you!\nWe've prepared a short survey to gather your thoughts on our products and services.\n\nIt will only take 5 minutes of your time, and as a thank you,\nwe'll enter you into a draw to win a $100 gift card!\n\nClick here to start the survey: [SURVEY LINK]\n\nThank you for helping us improve,\nBarb's Show Stor Customer Service Team"
+      }
+    };
+
+    templateSelect.addEventListener('change', function() {
+      const selectedTemplate = templates[this.value];
+      if (selectedTemplate) {
+        subjectInput.value = selectedTemplate.subject;
+        messageInput.value = selectedTemplate.message;
+        updatePreview();
+      }
+    });
+
+    function updatePreview() {
+      preview.textContent = `Subject: ${subjectInput.value}\n\n${messageInput.value}`;
+    }
+
+    subjectInput.addEventListener('input', updatePreview);
+    messageInput.addEventListener('input', updatePreview);
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const recipient = document.getElementById('recipient').value;
+      const subject = subjectInput.value;
+      const message = messageInput.value;
+      
+      // In a real application, this would send the message to the selected recipients
+      console.log(`Sending message to ${recipient}`);
+      console.log(`Subject: ${subject}`);
+      console.log(`Message: ${message}`);
+      
+      alert('Message sent successfully!');
+      this.reset();
+      preview.textContent = '';
+    });
+
+    // Simulated typing effect for added interface charm
+    function typeEffect(element, text, speed = 50) {
+      let i = 0;
+      const timer = setInterval(() => {
+        if (i < text.length) {
+          element.textContent += text.charAt(i);
+          i++;
+        } else {
+          clearInterval(timer);
+        }
+      }, speed);
+    }
+
+    // Apply typing effect to the page header
+    const pageHeader = document.querySelector('.page-header h1');
+    pageHeader.textContent = '';
+    typeEffect(pageHeader, 'CUSTOMER MESSAGING');
+
+    // Log admin activity
+    function logAdminActivity(activity) {
+      console.log('Admin activity:', activity);
+      // In a real implementation, this would send logs to a secure server
+    }
+
+    // Log page access
+    logAdminActivity('Accessed Customer Messaging page');
+
+    // Log message sending
+    form.addEventListener('submit', function() {
+      logAdminActivity('Sent customer message');
+    });
+
+    // Session timeout simulation
+    let sessionTimeout;
+    function resetSessionTimeout() {
+      clearTimeout(sessionTimeout);
+      sessionTimeout = setTimeout(() => {
+        alert('Your session has expired. Please log in again.');
+        window.location.href = '/admin/logout';
+      }, 30 * 60 * 1000); // 30 minutes
+    }
+
+    // Reset timeout on user activity
+    document.addEventListener('click', resetSessionTimeout);
+    document.addEventListener('keypress', resetSessionTimeout);
+
+    // Initial call to start the timeout
+    resetSessionTimeout();
+  </script>
+</body>
+</html>

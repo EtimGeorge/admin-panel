@@ -1,0 +1,427 @@
+<html><head><base href="https://barbshoestore.com/admin/#dashboard/analytics/written"><title>Barb's Show Stor - Analytics Dashboard (Written)</title>
+<style>
+  :root {
+    --primary-color: #00FFFF;
+    --secondary-color: #FF00FF;
+    --background-color: #0D0D0D;
+    --card-background: #1A1A1A;
+    --text-color: #FFFFFF;
+    --text-light: #CCCCCC;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    --accent-color: #FFD700;
+    --success-color: #00FF00;
+    --warning-color: #FF4500;
+  }
+  
+  body {
+    font-family: 'Courier New', monospace;
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+  }
+  
+  .admin-container {
+    display: flex;
+    min-height: 100vh;
+  }
+  
+  .sidebar {
+    width: 250px;
+    background-color: var(--card-background);
+    padding: 2em 1em;
+    border-right: 1px solid var(--primary-color);
+  }
+  
+  .sidebar h2 {
+    color: var(--primary-color);
+    margin-bottom: 1em;
+    text-align: center;
+  }
+  
+  .sidebar ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .sidebar ul li {
+    margin-bottom: 0.5em;
+  }
+  
+  .sidebar ul li a {
+    color: var(--text-color);
+    text-decoration: none;
+    display: block;
+    padding: 0.5em 1em;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .sidebar ul li a:hover, .sidebar ul li a.active {
+    background-color: var(--primary-color);
+    color: var(--background-color);
+  }
+  
+  .main-content {
+    flex: 1;
+    padding: 2em;
+    overflow-y: auto;
+  }
+  
+  .analytics-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2em;
+    border-bottom: 1px solid var(--primary-color);
+    padding-bottom: 1em;
+  }
+  
+  .analytics-header h1 {
+    color: var(--primary-color);
+  }
+  
+  .user-info {
+    display: flex;
+    align-items: center;
+  }
+  
+  .user-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--accent-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 1em;
+  }
+  
+  .logout-btn {
+    background-color: var(--warning-color);
+    color: var(--text-color);
+    border: none;
+    padding: 0.5em 1em;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .logout-btn:hover {
+    background-color: var(--accent-color);
+  }
+  
+  .analytics-section {
+    margin-bottom: 2em;
+    border: 1px solid var(--primary-color);
+    padding: 1em;
+    border-radius: 4px;
+  }
+  
+  .analytics-section h2 {
+    color: var(--primary-color);
+    margin-top: 0;
+    border-bottom: 1px solid var(--text-light);
+    padding-bottom: 0.5em;
+  }
+  
+  .stat-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1em;
+  }
+  
+  .stat-item {
+    background-color: var(--card-background);
+    padding: 1em;
+    border-radius: 4px;
+    box-shadow: var(--shadow);
+  }
+  
+  .stat-item h3 {
+    color: var(--secondary-color);
+    margin-top: 0;
+  }
+  
+  .stat-value {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: var(--accent-color);
+  }
+  
+  .trend-indicator {
+    font-size: 0.8em;
+    margin-left: 0.5em;
+  }
+  
+  .trend-up {
+    color: var(--success-color);
+  }
+  
+  .trend-down {
+    color: var(--warning-color);
+  }
+  
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1em;
+  }
+  
+  .data-table th, .data-table td {
+    border: 1px solid var(--text-light);
+    padding: 0.5em;
+    text-align: left;
+  }
+  
+  .data-table th {
+    background-color: var(--card-background);
+    color: var(--primary-color);
+  }
+  
+  .data-table tr:nth-child(even) {
+    background-color: rgba(255, 255, 255, 0.05);
+  }
+</style>
+</head>
+<body>
+  <div class="admin-container">
+    <aside class="sidebar">
+      <h2>ADMIN PANEL</h2>
+      <nav>
+        <ul>
+          <li><a href="#dashboard">Dashboard</a></li>
+          <li><a href="#inventory">Inventory</a></li>
+          <li><a href="#orders">Orders</a></li>
+          <li><a href="#customers">Customers</a></li>
+          <li><a href="#analytics" class="active">Analytics</a></li>
+          <li><a href="#settings">Settings</a></li>
+        </ul>
+      </nav>
+    </aside>
+    
+    <main class="main-content">
+      <header class="analytics-header">
+        <h1>ANALYTICS DASHBOARD</h1>
+        <div class="user-info">
+          <div class="user-avatar">B</div>
+          <button class="logout-btn">LOGOUT</button>
+        </div>
+      </header>
+      
+      <section class="analytics-section">
+        <h2>KEY PERFORMANCE INDICATORS</h2>
+        <div class="stat-grid">
+          <div class="stat-item">
+            <h3>TOTAL REVENUE (MTD)</h3>
+            <div class="stat-value">$67,890 <span class="trend-indicator trend-up">↑ 12%</span></div>
+          </div>
+          <div class="stat-item">
+            <h3>CONVERSION RATE</h3>
+            <div class="stat-value">3.2% <span class="trend-indicator trend-up">↑ 0.5%</span></div>
+          </div>
+          <div class="stat-item">
+            <h3>AVERAGE ORDER VALUE</h3>
+            <div class="stat-value">$85.50 <span class="trend-indicator trend-down">↓ 2%</span></div>
+          </div>
+          <div class="stat-item">
+            <h3>CUSTOMER RETENTION RATE</h3>
+            <div class="stat-value">68% <span class="trend-indicator trend-up">↑ 3%</span></div>
+          </div>
+        </div>
+      </section>
+      
+      <section class="analytics-section">
+        <h2>TOP SELLING PRODUCTS</h2>
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Product Name</th>
+              <th>Units Sold</th>
+              <th>Revenue</th>
+              <th>Profit Margin</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Classic Oxford</td>
+              <td>1,234</td>
+              <td>$111,060</td>
+              <td>32%</td>
+            </tr>
+            <tr>
+              <td>Running Sneaker</td>
+              <td>987</td>
+              <td>$128,310</td>
+              <td>28%</td>
+            </tr>
+            <tr>
+              <td>High Heels</td>
+              <td>765</td>
+              <td>$91,800</td>
+              <td>35%</td>
+            </tr>
+            <tr>
+              <td>Comfort Sandals</td>
+              <td>654</td>
+              <td>$45,780</td>
+              <td>25%</td>
+            </tr>
+            <tr>
+              <td>Winter Boots</td>
+              <td>543</td>
+              <td>$70,590</td>
+              <td>30%</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+      
+      <section class="analytics-section">
+        <h2>CUSTOMER DEMOGRAPHICS</h2>
+        <div class="stat-grid">
+          <div class="stat-item">
+            <h3>AGE DISTRIBUTION</h3>
+            <ul>
+              <li>18-24: 15%</li>
+              <li>25-34: 32%</li>
+              <li>35-44: 28%</li>
+              <li>45-54: 18%</li>
+              <li>55+: 7%</li>
+            </ul>
+          </div>
+          <div class="stat-item">
+            <h3>GENDER DISTRIBUTION</h3>
+            <ul>
+              <li>Female: 58%</li>
+              <li>Male: 41%</li>
+              <li>Other: 1%</li>
+            </ul>
+          </div>
+          <div class="stat-item">
+            <h3>TOP LOCATIONS</h3>
+            <ol>
+              <li>New York City</li>
+              <li>Los Angeles</li>
+              <li>Chicago</li>
+              <li>Houston</li>
+              <li>Phoenix</li>
+            </ol>
+          </div>
+          <div class="stat-item">
+            <h3>DEVICE USAGE</h3>
+            <ul>
+              <li>Mobile: 62%</li>
+              <li>Desktop: 31%</li>
+              <li>Tablet: 7%</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+      
+      <section class="analytics-section">
+        <h2>MARKETING CHANNEL PERFORMANCE</h2>
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Channel</th>
+              <th>Traffic</th>
+              <th>Conversions</th>
+              <th>Revenue</th>
+              <th>ROI</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Organic Search</td>
+              <td>45,678</td>
+              <td>1,234</td>
+              <td>$98,720</td>
+              <td>320%</td>
+            </tr>
+            <tr>
+              <td>Paid Search</td>
+              <td>23,456</td>
+              <td>876</td>
+              <td>$70,080</td>
+              <td>180%</td>
+            </tr>
+            <tr>
+              <td>Social Media</td>
+              <td>34,567</td>
+              <td>765</td>
+              <td>$61,200</td>
+              <td>150%</td>
+            </tr>
+            <tr>
+              <td>Email Marketing</td>
+              <td>12,345</td>
+              <td>543</td>
+              <td>$43,440</td>
+              <td>280%</td>
+            </tr>
+            <tr>
+              <td>Affiliate</td>
+              <td>9,876</td>
+              <td>321</td>
+              <td>$25,680</td>
+              <td>120%</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    document.querySelector('.logout-btn').addEventListener('click', function() {
+      alert('Logging out...');
+      // In a real application, this would handle the logout process
+      window.location.href = '/admin/logout';
+    });
+
+    // Simulated real-time updates
+    setInterval(function() {
+      const conversionRate = document.querySelector('.stat-item:nth-child(2) .stat-value');
+      const currentRate = parseFloat(conversionRate.textContent);
+      const newRate = (currentRate + (Math.random() * 0.1 - 0.05)).toFixed(2);
+      conversionRate.innerHTML = `${newRate}% <span class="trend-indicator ${newRate > currentRate ? 'trend-up' : 'trend-down'}">↑ ${Math.abs(newRate - currentRate).toFixed(2)}%</span>`;
+    }, 10000);
+
+    // Activity logging
+    function logAdminActivity(activity) {
+      console.log('Admin activity:', activity);
+      // In a real implementation, this would send logs to a secure server
+    }
+
+    // Log page load
+    logAdminActivity('Accessed analytics dashboard');
+
+    // Log navigation clicks
+    document.querySelectorAll('.sidebar a').forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault(); // Prevent actual navigation for this demo
+        logAdminActivity('Clicked: ' + this.textContent);
+      });
+    });
+
+    // Session timeout simulation
+    let sessionTimeout;
+    function resetSessionTimeout() {
+      clearTimeout(sessionTimeout);
+      sessionTimeout = setTimeout(() => {
+        alert('Your session has expired. Please log in again.');
+        window.location.href = '/admin/logout';
+      }, 30 * 60 * 1000); // 30 minutes
+    }
+
+    // Reset timeout on user activity
+    document.addEventListener('click', resetSessionTimeout);
+    document.addEventListener('keypress', resetSessionTimeout);
+
+    // Initial call to start the timeout
+    resetSessionTimeout();
+  </script>
+</body>
+</html>

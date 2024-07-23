@@ -1,0 +1,90 @@
+:root {
+  --primary-color: #00FFFF;
+  --secondary-color: #FF00FF;
+  --background-color: #0D0D0D;
+  --card-background: #1A1A1A;
+  --text-color: #FFFFFF;
+  --text-light: #CCCCCC;
+  --shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  --accent-color: #FFD700;
+  --success-color: #00FF00;
+  --warning-color: #FF4500;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.login-container {
+  background-color: var(--card-background);
+  padding: 2em;
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  width: 300px;
+}
+
+h1 {
+  text-align: center;
+  color: var(--primary-color);
+  margin-bottom: 1em;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  margin-bottom: 0.5em;
+}
+
+input {
+  padding: 0.5em;
+  margin-bottom: 1em;
+  border: none;
+  border-radius: 4px;
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+button {
+  background-color: var(--accent-color);
+  color: var(--background-color);
+  border: none;
+  padding: 0.8em;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background-color: var(--primary-color);
+}
+
+.error-message {
+  color: var(--warning-color);
+  text-align: center;
+  margin-top: 1em;
+}
+
+.two-factor {
+  margin-top: 1em;
+  text-align: center;
+}
+
+#twoFactorCode {
+  width: 100px;
+  margin: 0 auto;
+  text-align: center;
+  letter-spacing: 0.5em;
+  font-size: 1.2em;
+}

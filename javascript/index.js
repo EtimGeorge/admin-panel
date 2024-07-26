@@ -26,7 +26,7 @@ const loginForm = document.getElementById('loginForm');
       // Simulate API call to verify 2FA code
       if (code === '123456') {
         // Redirect to admin dashboard
-        window.location.href ="./html/admin-dashboard.html";
+        window.location.href ="../html/admin-dashboard.html";
       } else {
         errorMessage.textContent = 'Invalid verification code';
       }

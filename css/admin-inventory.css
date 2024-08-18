@@ -125,6 +125,10 @@
     transition: background-color 0.3s ease;
     margin-right: 1em;
   }
+
+  .action-btn a{
+    text-decoration: none;
+  }
   
   .action-btn:hover {
     background-color: var(--primary-color);

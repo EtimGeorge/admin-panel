@@ -25,8 +25,15 @@ const loginForm = document.getElementById('loginForm');
       const code = twoFactorCode.value;
       // Simulate API call to verify 2FA code
       if (code === '123456') {
-        // Redirect to admin dashboard
-        window.location.href ="../html/admin-dashboard.html";
+        // // Redirect to admin dashboard
+        // window.location.href ="../html/admin-dashboard.html";
+
+         // Determine the correct path to the thank you page
+    const basePath = window.location.pathname.substring(0, window.location.pathname.lastIndexOf('/') + 1);
+    const dashboardUrl = `${window.location.origin}${basePath}admin-dashboard.html`;
+    
+    // Redirect to the thank you page
+    window.location.href = dashboardUrl;
       } else {
         errorMessage.textContent = 'Invalid verification code';
       }
